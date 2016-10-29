@@ -2,5 +2,13 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#8A93E6</color>
+
+    <color name="titleColor">#444444</color>
+    <color name="sourceColor">#777777</color>
+    <color name="previewColor">#FFFFFF</color>
+    <color name="tagColor">#444444</color>
+
+
+
 </resources>

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Worldview</string>
-    <string name="sample_text">Abhishek smells!</string>
+    <string name="title_text">Title text</string>
+    <string name="source_text">Source</string>
+    <string name="preview_text">This is a preview for this news article. If you want to read click this thing.</string>
+    <string name="thumbnail_description">Thumbnail of article</string>
+    <!--fake it 'til you make it?-->
+    <string name="tags">tag,  tag,  tag,  ...</string>
 </resources>
