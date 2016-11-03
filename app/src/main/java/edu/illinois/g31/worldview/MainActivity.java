@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,26 +16,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int feed_num = 6;
+        ScrollView scroll = new ScrollView(this);
+        int feed_num = 10;
         RelativeLayout newsFeed = new RelativeLayout(this);
         RelativeLayout f[] = new RelativeLayout[feed_num];
         for(int i = 0; i < f.length; i ++){
-            f[i] = newFeed(getText(R.string.title_text),getText(R.string.source_text), getText(R.string.preview_text), getText(R.string.tags));
+            f[i] = addArticleToFeed(getText(R.string.title_text)+" "+i,getText(R.string.source_text), getText(R.string.preview_text), getText(R.string.tags));
             if(i > 0){
                 RelativeLayout.LayoutParams LP = new RelativeLayout.LayoutParams(
                         f[i].getLayoutParams().width,
                         f[i].getLayoutParams().height);
+
                 LP.addRule(RelativeLayout.BELOW, f[i-1].getId());
                 f[i].setLayoutParams(LP);
             }
             newsFeed.addView(f[i]);
         }
 
-        setContentView(newsFeed);
-        //setContentView(R.layout.activity_main);
+        scroll.addView(newsFeed);
+        setContentView(scroll);
     }
 
-    protected RelativeLayout newFeed(CharSequence title, CharSequence source, CharSequence preview, CharSequence tags){
+    protected RelativeLayout addArticleToFeed(CharSequence title, CharSequence source, CharSequence preview, CharSequence tags){
         RelativeLayout feed = new RelativeLayout(this);
 
         feed.setId(View.generateViewId());
