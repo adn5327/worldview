@@ -1,9 +1,36 @@
 <resources>
     <string name="app_name">Worldview</string>
+
+    <string name="goto_newsfeed_button">Go to News Feed</string>
+    <string name="goto_article_button">Go to Article</string>
+
     <string name="title_text">Title text</string>
     <string name="source_text">Source</string>
-    <string name="preview_text">This is a preview for this news article. If you want to read click this thing.</string>
-    <string name="thumbnail_description">Thumbnail of article</string>
+    <string name="author_text">Author</string>
+    <string name="date_text">Date</string>
     <!--fake it 'til you make it?-->
-    <string name="tags">tag,  tag,  tag,  ...</string>
+    <string name="tags">tag</string>
+
+    <string name="preview_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum..</string>
+    <string name="full_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus.
+        Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibus
+        orci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felis
+        in urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.
+        Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.
+        Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quis
+        commodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta at
+        ante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duis
+        lobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel en
+        im. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Cras a diam non felis rutrum tempus.
+        Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibus
+        orci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felis
+        in urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.
+        Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.
+        Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quis
+        commodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta at
+        ante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duis
+        lobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel en
+        im. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.</string>
+
 </resources>
