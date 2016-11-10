@@ -16,6 +16,7 @@ import android.widget.TextView;
  * TODO: Add Create Account page
  * TODO: Add Top nav bar with the two menus and buttons
  * TODO: Add topics/sources/feeds
+ * TODO: Add search feature
  * TODO: Add articles and update Article Viewer and News feed accordingly (article object and json parsing?)
  * TODO: Add comparisons and everything that goes with it
  * TODO: Add swiping to news feed articles and dull posts after viewing
