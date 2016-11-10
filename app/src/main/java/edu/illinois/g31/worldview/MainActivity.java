@@ -12,13 +12,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
- * TODO: Add Log-in page (auth?)
- * TODO: Add Create Account page
- * TODO: Add Top nav bar with the two menus and buttons
- * TODO: Add topics/sources/feeds
- * TODO: Add search feature
- * TODO: Add articles and update Article Viewer and News feed accordingly (article object and json parsing?)
- * TODO: Add comparisons and everything that goes with it
+ * TODO: Add Log-in page (auth?) -- Abhishek
+ * TODO: Add Create Account page -- Abhishek
+ * TODO: Add Top nav bar with the two menus and buttons -- Emily
+ * TODO: Add topics/sources/feeds -- Kelley
+ * TODO: Add search feature -- Abhishek
+ * TODO: Add articles and update Article Viewer and News feed accordingly (article object and json parsing?) -- Asaf
+ * TODO: Add comparisons and everything that goes with it -- Tyler
  * TODO: Add swiping to news feed articles and dull posts after viewing
  */
 
