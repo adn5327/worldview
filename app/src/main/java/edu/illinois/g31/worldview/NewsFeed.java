@@ -10,61 +10,111 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.json.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+
 public class NewsFeed extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Article articles[] = null;
+
+        String json = loadJSONFromAsset();
+        JSONObject obj = null;
+        JSONArray arts = null;
+        try{
+            obj = new JSONObject(json);
+            arts = obj.getJSONArray("articles");
+            articles = new Article[arts.length()];
+            for(int i = 0; i < arts.length(); i++) {
+                JSONObject article = arts.getJSONObject(i);
+                String title = article.getString("title");
+                String source = article.getString("source");
+                String author = article.getString("author");
+                String date = article.getString("date");
+                JSONArray tagJson = article.getJSONArray("tags");
+                String tags[] = new String[tagJson.length()];
+                for(int j = 0; j < tagJson.length(); j++)
+                    tags[j] = tagJson.getString(j);
+                String text = article.getString("text");
+                articles[i] = new Article(title,source,author,date,text,tags);
+            }
+        } catch(JSONException ex){
+            ex.printStackTrace();
+        }
+
         ScrollView scroll = new ScrollView(this);
-        int feed_num = 10;
+
         RelativeLayout newsFeed = new RelativeLayout(this);
-        RelativeLayout f[] = new RelativeLayout[feed_num];
-        for(int i = 0; i < f.length; i ++){
-            final String articleTitle = getText(R.string.title_text)+" "+i;
-            final String articleSource = getText(R.string.source_text)+" "+i;
-            final String articlePreview = getText(R.string.preview_text)+" "+i;
-            final String articleAuthor = getText(R.string.author_text)+" "+i;
-            final String articleDate = getText(R.string.date_text)+" "+i;
-            final String articleText = getText(R.string.full_text)+" "+i;
-            final String articleTags[] = new String[3];
-            for(int j = 0; j < articleTags.length; j++){
-                articleTags[j] = getText(R.string.tags)+""+j;
-            }
+        RelativeLayout cur_layout = null;
+        RelativeLayout prev_layout = null;
+        if(articles != null) {
+            for (int i = 0; i < articles.length; i++) {
+                final Article cur_article = articles[i];
+                cur_layout = addArticleToFeed(cur_article);
+                if(i > 0){
 
+                    RelativeLayout.LayoutParams LP = new RelativeLayout.LayoutParams(
+                            cur_layout.getLayoutParams().width,
+                            cur_layout.getLayoutParams().height);
 
+                    LP.addRule(RelativeLayout.BELOW, prev_layout.getId());
+                    cur_layout.setLayoutParams(LP);
 
-            f[i] = addArticleToFeed(articleTitle,articleSource,articlePreview,articleTags);
-            if(i > 0){
-                RelativeLayout.LayoutParams LP = new RelativeLayout.LayoutParams(
-                        f[i].getLayoutParams().width,
-                        f[i].getLayoutParams().height);
-
-                LP.addRule(RelativeLayout.BELOW, f[i-1].getId());
-                f[i].setLayoutParams(LP);
-
-            }
-            f[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent article = new Intent(NewsFeed.this, ArticleViewer.class);
-                    article.putExtra("article_title", articleTitle);
-                    article.putExtra("article_source", articleSource);
-                    article.putExtra("article_author", articleAuthor);
-                    article.putExtra("article_date", articleDate);
-                    article.putExtra("article_tags", articleTags);
-                    article.putExtra("article_text", articleText);
-                    startActivity(article);
                 }
-            });
-            newsFeed.addView(f[i]);
+                cur_layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent article = new Intent(NewsFeed.this, ArticleViewer.class);
+                        article.putExtra("article_title", cur_article.title);
+                        article.putExtra("article_source", cur_article.source);
+                        article.putExtra("article_author", cur_article.author);
+                        article.putExtra("article_date", cur_article.date);
+                        article.putExtra("article_tags", cur_article.tags);
+                        article.putExtra("article_text", cur_article.full_text);
+                        startActivity(article);
+                    }
+                });
+                newsFeed.addView(cur_layout);
+                prev_layout = cur_layout;
+            }
         }
 
         scroll.addView(newsFeed);
         setContentView(scroll);
     }
 
-    protected RelativeLayout addArticleToFeed(CharSequence title, CharSequence source, CharSequence preview, CharSequence[] tags){
+    public String loadJSONFromAsset(){
+        String json = null;
+        try {
+            InputStream is = getAssets().open("articles.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex){
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    protected RelativeLayout addArticleToFeed(Article article){
+        String title = article.title;
+        String source = article.source;
+        String preview_text = article.preview_text;
+        String[] tags = article.tags;
+
         RelativeLayout feed = new RelativeLayout(this);
 
         feed.setId(View.generateViewId());
@@ -116,7 +166,7 @@ public class NewsFeed extends AppCompatActivity {
         previewTextLP.addRule(RelativeLayout.BELOW,titleText.getId());
         previewTextLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         previewText.setLayoutParams(previewTextLP);
-        previewText.setText(preview);
+        previewText.setText(preview_text);
         previewText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_preview_text_size));
         previewText.setTextColor(getResources().getColor(R.color.previewColor));
 
