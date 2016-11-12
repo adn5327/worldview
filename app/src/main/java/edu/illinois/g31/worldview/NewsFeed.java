@@ -220,9 +220,9 @@ public class NewsFeed extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menu_item) {
+        /*if (id == R.id.menu_item) {
             //do something
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 

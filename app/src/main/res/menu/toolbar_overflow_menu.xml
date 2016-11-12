@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- "Compare", should appear as action button if possible -->
     <item
-        android:id="@+id/menu_item"
-        android:title="Dummy menu item" />
+        android:id="@+id/action_compare"
+        android:icon="@drawable/ic_library_books_black_24dp"
+        app:showAsAction="ifRoom"
+        android:title="Compare" />
+
+    <!-- "Search", should appear as action button if possible -->
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        app:showAsAction="ifRoom"
+        android:title="Search" />
+
+    <!-- "Add Feed", should always be in the overflow -->
+    <item android:id="@+id/action_add_feed"
+        app:showAsAction="never"
+        android:title="Add Feed" />
 
 </menu>
