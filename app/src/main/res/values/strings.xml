@@ -2,36 +2,31 @@
     <string name="app_name">Worldview</string>
 
     <string name="goto_newsfeed_button">Go to News Feed</string>
+    <string name="goto_login_button">Go to Login</string>
     <string name="goto_article_button">Go to Article</string>
 
-    <string name="title_text">Title text</string>
-    <string name="source_text">Source</string>
-    <string name="author_text">Author</string>
-    <string name="date_text">Date</string>
-    <!--fake it 'til you make it?-->
-    <string name="tags">tag</string>
 
-    <string name="preview_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum..</string>
-    <string name="full_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus.
-        Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibus
-        orci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felis
-        in urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.
-        Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.
-        Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quis
-        commodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta at
-        ante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duis
-        lobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel en
-        im. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Cras a diam non felis rutrum tempus.
-        Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibus
-        orci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felis
-        in urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.
-        Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.
-        Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quis
-        commodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta at
-        ante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duis
-        lobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel en
-        im. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_create">Create Account</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- Strings for account creation -->
+    <string name="prompt_name">Name</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_security_question">Security Question</string>
+    <string name="prompt_question_answer">Security Question Answer</string>
 
 
     <!-- News feed toolbar buttons-->

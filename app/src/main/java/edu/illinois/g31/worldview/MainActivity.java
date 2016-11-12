@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(activity);
     }
 
+    public void goToLoginActivity(View view){
+        Intent activity = new Intent(this, LoginActivity.class);
+        startActivity(activity);
+    }
+
     public void goToArticle(View view){
         Intent activity = new Intent(this, ArticleViewer.class);
         startActivity(activity);

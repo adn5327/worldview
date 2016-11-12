@@ -22,6 +22,18 @@
        android:onClick="goToNewsFeed"
        />
 
+   <Button
+       android:id="@+id/goto_login"
+       android:layout_below="@id/goto_newsfeed"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="@dimen/activity_horizontal_margin"
+       android:text="@string/goto_login_button"
+       android:textColor="@color/colorAccent"
+       android:background="@color/colorPrimary"
+       android:onClick="goToLoginActivity"
+       />
+
 
 
 </RelativeLayout>
