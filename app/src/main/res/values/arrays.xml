@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="news_feed_menu_array">
+        <item>Sources</item>
+        <item>Topics</item>
+        <item>Account Settings</item>
+        <item>Help</item>
+        <item>Sign Oout</item>
+    </string-array>
+</resources>

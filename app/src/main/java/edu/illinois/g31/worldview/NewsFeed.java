@@ -1,13 +1,19 @@
 package edu.illinois.g31.worldview;
 
 import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -17,7 +23,11 @@ import org.json.*;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class NewsFeed extends AppCompatActivity {
+public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickListener {
+
+    //Nav drawer variables
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +36,35 @@ public class NewsFeed extends AppCompatActivity {
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setNavigationIcon(R.drawable.navigation_menu_icon); // place icon in upper left
+        //TODO:  find a better icon than this
         setSupportActionBar(myToolbar);
+
+        //set up the nav drawer
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerListView = (ListView) findViewById(R.id.drawer_list_view);
+        mDrawerListView.setOnItemClickListener(this);
+        
+        String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
+        ListAdapter listAdapter = new ArrayAdapter<String>(this,
+                R.layout.nav_drawer_list_item, items);
+        mDrawerListView.setAdapter(listAdapter);
+
+        /* This code will allow the use to use the navigation icon to toggle the
+         drawer open and close. In a 'real' app, you would move this code to a different class.
+        */
+        //TODO:  add this to another class as Brian's comment suggests?
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                    mDrawerLayout.closeDrawers();
+                } else {
+                    if (mDrawerLayout != null) {
+                        mDrawerLayout.openDrawer(Gravity.LEFT);
+                    }
+                }
+            }
+        });
 
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
         Article articles[] = null;
@@ -224,5 +262,11 @@ public class NewsFeed extends AppCompatActivity {
         }*/
         return super.onOptionsItemSelected(item);
     }
+
+    public void onItemClick(AdapterView parent, View view, int position, long id) {
+        ListView v = (ListView) parent;
+        mDrawerLayout.closeDrawers();
+    }
+
 
 }
