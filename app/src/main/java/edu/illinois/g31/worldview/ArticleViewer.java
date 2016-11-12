@@ -3,6 +3,8 @@ package edu.illinois.g31.worldview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,5 +58,18 @@ public class ArticleViewer extends AppCompatActivity {
         text.setText(article_info.getString("article_text"));
 
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_article_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        /*if (id == R.id.menu_item) {
+            //do something
+        }*/
+        return super.onOptionsItemSelected(item);
     }
 }

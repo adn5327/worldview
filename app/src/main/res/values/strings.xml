@@ -33,4 +33,15 @@
         lobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel en
         im. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.</string>
 
+
+    <!-- News feed toolbar buttons-->
+    <string name="compare_button">Compare</string>
+    <string name="search_button">Search</string>
+    <string name="add_feed_menu_option">Add Feed</string>
+
+    <!-- Article toolbar buttons-->
+    <string name="add_to_compare_button">Add to Compare</string>
+    <string name="article_search_button">Search</string>
+    <string name="download_button">Download</string>
+
 </resources>
