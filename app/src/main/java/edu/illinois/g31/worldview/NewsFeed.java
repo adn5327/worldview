@@ -34,9 +34,11 @@ public class NewsFeed extends AppCompatActivity {
         String json = loadJSONFromAsset();
         JSONObject obj = null;
         JSONArray arts = null;
+        JSONArray tops = null;
         try{
             obj = new JSONObject(json);
             arts = obj.getJSONArray("articles");
+           // tops = obj.getJSONArray("tops");
             articles = new Article[arts.length()];
             for(int i = 0; i < arts.length(); i++) {
                 JSONObject article = arts.getJSONObject(i);
