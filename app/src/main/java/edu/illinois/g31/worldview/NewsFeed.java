@@ -3,6 +3,9 @@ package edu.illinois.g31.worldview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,8 +18,14 @@ public class NewsFeed extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_news_feed);
 
-        ScrollView scroll = new ScrollView(this);
+        //set up the toolbar
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
+
         int feed_num = 10;
         RelativeLayout newsFeed = new RelativeLayout(this);
         RelativeLayout f[] = new RelativeLayout[feed_num];
@@ -61,7 +70,6 @@ public class NewsFeed extends AppCompatActivity {
         }
 
         scroll.addView(newsFeed);
-        setContentView(scroll);
     }
 
     protected RelativeLayout addArticleToFeed(CharSequence title, CharSequence source, CharSequence preview, CharSequence[] tags){
@@ -157,5 +165,17 @@ public class NewsFeed extends AppCompatActivity {
         return feed;
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_overflow_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_item) {
+            //do something
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

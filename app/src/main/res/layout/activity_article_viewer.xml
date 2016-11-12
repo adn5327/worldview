@@ -1,70 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_article_viewer"
+    <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        xmlns:android="http://schemas.android.com/apk/res/android" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:background="@color/colorAccent"
-        tools:context="edu.illinois.g31.worldview.ArticleViewer">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fillViewport="true">
 
-        <TextView
-            android:id="@+id/article_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/article_title_text_size"
-            android:textColor="@color/colorPrimaryDark"
-            />
-        <TextView
-            android:id="@+id/article_source"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/article_source_horizontal_margin"
-            android:layout_below="@id/article_title"
-            android:textSize="@dimen/article_source_text_size"
-            />
-        <TextView
-            android:id="@+id/article_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/article_author_horizontal_margin"
-            android:layout_below="@id/article_title"
-            android:layout_toRightOf="@id/article_source"
-            android:textSize="@dimen/article_author_text_size"
-            />
-        <TextView
-            android:id="@+id/article_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/article_date_horizontal_margin"
-            android:layout_below="@id/article_title"
-            android:layout_toRightOf="@id/article_author"
-            android:textSize="@dimen/article_date_text_size"
-            />
-        <RelativeLayout
-            android:id="@+id/article_tags"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/article_source">
 
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/article_text"
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_article_viewer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/article_text_verticle_margin"
-            android:layout_below="@id/article_tags"
-            android:textSize="@dimen/article_text_size"
-            android:textColor="@color/colorPrimaryDark"
-            />
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:background="@color/colorAccent"
+            tools:context="edu.illinois.g31.worldview.ArticleViewer">
 
-    </RelativeLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/article_title_text_size"
+                android:textColor="@color/colorPrimaryDark"
+                />
+            <TextView
+                android:id="@+id/article_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/article_source_horizontal_margin"
+                android:layout_below="@id/article_title"
+                android:textSize="@dimen/article_source_text_size"
+                />
+            <TextView
+                android:id="@+id/article_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/article_author_horizontal_margin"
+                android:layout_below="@id/article_title"
+                android:layout_toRightOf="@id/article_source"
+                android:textSize="@dimen/article_author_text_size"
+                />
+            <TextView
+                android:id="@+id/article_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/article_date_horizontal_margin"
+                android:layout_below="@id/article_title"
+                android:layout_toRightOf="@id/article_author"
+                android:textSize="@dimen/article_date_text_size"
+                />
+            <RelativeLayout
+                android:id="@+id/article_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_source">
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/article_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/article_text_verticle_margin"
+                android:layout_below="@id/article_tags"
+                android:textSize="@dimen/article_text_size"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
