@@ -41,7 +41,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         //set up the nav drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerListView = (ListView) findViewById(R.id.drawer_list_view);
+        mDrawerListView = (ListView) findViewById(R.id.newsfeed_drawer_list_view);
         mDrawerListView.setOnItemClickListener(this);
         
         String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
@@ -49,21 +49,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                 R.layout.nav_drawer_list_item, items);
         mDrawerListView.setAdapter(listAdapter);
 
-        /* This code will allow the use to use the navigation icon to toggle the
-         drawer open and close. In a 'real' app, you would move this code to a different class.
-        */
-        //TODO:  add this to another class as Brian's comment suggests?
-        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
-                    mDrawerLayout.closeDrawers();
-                } else {
-                    if (mDrawerLayout != null) {
-                        mDrawerLayout.openDrawer(Gravity.LEFT);
-                    }
-                }
-            }
-        });
+        myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
         Article articles[] = null;

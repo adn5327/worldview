@@ -6,6 +6,16 @@
         <item>Topics</item>
         <item>Account Settings</item>
         <item>Help</item>
-        <item>Sign Oout</item>
+        <item>Sign Out</item>
+    </string-array>
+
+    <string-array
+        name="article_menu_array">
+        <!-- TODO: Do we want sources and topics in this menu?-->
+        <!--<item>Sources</item>
+        <item>Topics</item> -->
+        <item>Account Settings</item>
+        <item>Help</item>
+        <item>Sign Out</item>
     </string-array>
 </resources>

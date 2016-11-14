@@ -1,15 +1,25 @@
 package edu.illinois.g31.worldview;
 
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ArticleViewer extends AppCompatActivity {
+public class ArticleViewer extends AppCompatActivity implements ListView.OnItemClickListener {
+
+    //Nav drawer variables
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +28,20 @@ public class ArticleViewer extends AppCompatActivity {
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setNavigationIcon(R.mipmap.ic_menu_black_48dp); // place icon in upper left
         setSupportActionBar(myToolbar);
+
+        //set up the nav drawer
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.article_drawer_layout);
+        mDrawerListView = (ListView) findViewById(R.id.article_drawer_list_view);
+        mDrawerListView.setOnItemClickListener(this);
+
+        String[] items = getResources().getStringArray(R.array.article_menu_array);
+        ListAdapter listAdapter = new ArrayAdapter<String>(this,
+                R.layout.nav_drawer_list_item, items);
+        mDrawerListView.setAdapter(listAdapter);
+
+        myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
         Bundle article_info = getIntent().getExtras();
 
@@ -71,5 +94,10 @@ public class ArticleViewer extends AppCompatActivity {
             //do something
         }*/
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onItemClick(AdapterView parent, View view, int position, long id) {
+        ListView v = (ListView) parent;
+        mDrawerLayout.closeDrawers();
     }
 }
