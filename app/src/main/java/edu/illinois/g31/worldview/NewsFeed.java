@@ -36,8 +36,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setNavigationIcon(R.drawable.navigation_menu_icon); // place icon in upper left
-        //TODO:  find a better icon than this
+        myToolbar.setNavigationIcon(R.mipmap.ic_menu_black_48dp); // place icon in upper left
         setSupportActionBar(myToolbar);
 
         //set up the nav drawer

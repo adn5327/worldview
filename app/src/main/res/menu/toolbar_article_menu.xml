@@ -5,21 +5,21 @@
     <!-- "Download", should appear as action button if possible -->
     <item
         android:id="@+id/action_download"
-        android:icon="@drawable/ic_save_black_24dp"
+        android:icon="@mipmap/ic_save_black_24dp"
         app:showAsAction="ifRoom"
         android:title="@string/download_button" />
 
     <!-- "Add to Compare", should appear as action button if possible -->
     <item
         android:id="@+id/action_add_to_compare"
-        android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:icon="@mipmap/ic_add_circle_outline_black_24dp"
         app:showAsAction="ifRoom"
         android:title="@string/add_to_compare_button" />
 
     <!-- "Search", should appear as action button if possible -->
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_black_24dp"
+        android:icon="@mipmap/ic_search_black_24dp"
         app:showAsAction="ifRoom"
         android:title="@string/article_search_button" />
 
