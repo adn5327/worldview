@@ -19,4 +19,8 @@ public class Article {
         this.tags = tags;
     }
 
+    public String toString(){
+        return this.title + " - " + this.source;
+    }
+
 }

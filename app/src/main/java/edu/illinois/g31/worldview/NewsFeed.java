@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -23,9 +24,11 @@ import android.widget.TextView;
 
 import org.json.*;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+//TODO add more articles to articles.json
+//TODO link CreateAccount to the new user to fake new accounts
 public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickListener {
 
     //Nav drawer variables
@@ -39,7 +42,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setNavigationIcon(R.mipmap.ic_menu_black_48dp); // place icon in upper left
+        myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
         setSupportActionBar(myToolbar);
 
         //set up the nav drawer
@@ -54,52 +57,43 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
+        //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
-        Article articles[] = null;
 
-        String json = loadJSONFromAsset();
-        JSONObject obj = null;
-        JSONArray arts = null;
-        JSONArray tops = null;
-        try{
-            obj = new JSONObject(json);
-            arts = obj.getJSONArray("articles");
-           // tops = obj.getJSONArray("tops");
-            articles = new Article[arts.length()];
-            for(int i = 0; i < arts.length(); i++) {
-                JSONObject article = arts.getJSONObject(i);
-                String title = article.getString("title");
-                String source = article.getString("source");
-                String author = article.getString("author");
-                String date = article.getString("date");
-                JSONArray tagJson = article.getJSONArray("tags");
-                String tags[] = new String[tagJson.length()];
-                for(int j = 0; j < tagJson.length(); j++)
-                    tags[j] = tagJson.getString(j);
-                String text = article.getString("text");
-                articles[i] = new Article(title,source,author,date,text,tags);
-            }
-        } catch(JSONException ex){
-            ex.printStackTrace();
-        }
+        //Info from login
+        Bundle article_info = getIntent().getExtras();
+        String cur_username = "No name";
+        if(article_info.containsKey("username"))
+            cur_username = article_info.getString("username");
+        if(cur_username.length() == 0)
+            cur_username = "No name";
 
-        RelativeLayout newsFeed = new RelativeLayout(this);
-        RelativeLayout cur_layout = null;
-        RelativeLayout prev_layout = null;
+
+        //init relevant info
+        String topics[] = {"Politics", "Style", "Donald Trump", "Baseball"};
+        String sources[] = {"BBC", "NY Times", "Washington Post"};
+        User user = new User(cur_username, topics, sources);
+        System.out.println("Logging in user..");
+        System.out.println(user);
+
+
+        //JSON parsing
+        String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
+        ArrayList<Article> articles = JSONParser.getArticles(user, articlejson);
+
+        //Make feed
+        LinearLayout newsFeed = new LinearLayout(this);
+        newsFeed.setOrientation(LinearLayout.VERTICAL);
+        RelativeLayout cur_layout;
         if(articles != null) {
-            for (int i = 0; i < articles.length; i++) {
-                final Article cur_article = articles[i];
+            for (Article article : articles) {
+                final Article cur_article = article;
                 cur_layout = addArticleToFeed(cur_article);
-                if(i > 0){
+                RelativeLayout.LayoutParams LP = new RelativeLayout.LayoutParams(
+                        cur_layout.getLayoutParams().width,
+                        cur_layout.getLayoutParams().height);
 
-                    RelativeLayout.LayoutParams LP = new RelativeLayout.LayoutParams(
-                            cur_layout.getLayoutParams().width,
-                            cur_layout.getLayoutParams().height);
-
-                    LP.addRule(RelativeLayout.BELOW, prev_layout.getId());
-                    cur_layout.setLayoutParams(LP);
-
-                }
+                cur_layout.setLayoutParams(LP);
                 cur_layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -114,32 +108,10 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                     }
                 });
                 newsFeed.addView(cur_layout);
-                prev_layout = cur_layout;
             }
         }
 
         scroll.addView(newsFeed);
-    }
-
-    public String loadJSONFromAsset(){
-        String json = null;
-        try {
-            InputStream is = getAssets().open("articles.json");
-
-            int size = is.available();
-
-            byte[] buffer = new byte[size];
-
-            is.read(buffer);
-
-            is.close();
-
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex){
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
     }
 
     protected RelativeLayout addArticleToFeed(Article article){

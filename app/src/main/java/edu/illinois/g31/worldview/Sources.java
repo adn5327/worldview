@@ -15,7 +15,13 @@ public class Sources extends AppCompatActivity {
     Button finish;
 
     // array of sources
-    String [] sources = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
+    String [] sources = { "NY Times",
+            "Guardian",
+            "BBC",
+            "ESPN",
+            "Chicago Tribune",
+            "Washington Post",
+            "Buzzfeed"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +41,8 @@ public class Sources extends AppCompatActivity {
         sourceList.setAdapter(adapter);
     }
 
-    public void goToTopics(View view){
-        Intent activity = new Intent(this, Topics.class);
+    public void goToNewsFeed(View view){
+        Intent activity = new Intent(this, NewsFeed.class);
         startActivity(activity);
     }
 }

@@ -3,145 +3,61 @@
       {
         "title": "Trump wins",
         "author": "John Doe",
-        "source": "www.nytimes.com",
+        "source": "NY Times",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
         "date": "10/21/16",
         "tags": [
-          "politics",
-          "Trump"
+          "Style"
         ]
     } , {
       "title": "Hillary loses",
       "author": "Jane Doe",
-      "source": "www.huffingtonpost.com",
+      "source": "Huffington Post",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
       "date": "10/21/16",
       "tags": [
-        "politics",
-        "Hillary"
+        "Politics",
+        "Hillary Clinton"
       ]
     } , {
       "title": "Trump wins",
       "author": "John Doe",
-      "source": "www.nytimes.com",
+      "source": "NY Times",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
       "date": "10/21/16",
       "tags": [
-        "politics",
-        "Trump"
+        "Donald Trump"
       ]
     } , {
       "title": "Hillary loses",
       "author": "Jane Doe",
-      "source": "www.huffingtonpost.com",
+      "source": "Huffington Post",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
       "date": "10/21/16",
       "tags": [
-        "politics",
-        "Hillary"
+        "Sports"
       ]
     } , {
       "title": "Trump wins",
       "author": "John Doe",
-      "source": "www.nytimes.com",
+      "source": "NY Times",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
       "date": "10/21/16",
       "tags": [
-        "politics",
-        "Trump"
+        "Politics"
       ]
     } , {
       "title": "Hillary loses",
       "author": "Jane Doe",
-      "source": "www.huffingtonpost.com",
+      "source": "Washington Post",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
       "date": "10/21/16",
       "tags": [
-        "politics",
-        "Hillary"
+        "Politics",
+        "Hillary Clinton"
       ]
     }
 
-  ],
-  "default_topics":[
-    "Politics",
-    "Sports",
-    "Tech",
-    "Health",
-    "Food",
-    "World",
-    "US",
-    "Business",
-    "Arts",
-    "Style"
-  ],
-  "topics":[
-    "Politics",
-    "Sports",
-    "Tech",
-    "Health",
-    "Food",
-    "World",
-    "US",
-    "Business",
-    "Arts",
-    "Style",
-    "Donald Trump",
-    "Hillary Clinton",
-    "Presidency",
-    "Senate",
-    "Immigration",
-    "Iraq",
-    "Environment",
-    "Weather",
-    "Taxes",
-    "Elections",
-    "Education",
-    "Children",
-    "Energy",
-    "History",
-    "Science",
-    "Real Estate",
-    "Banks",
-    "Stock Exchange",
-    "Airlines",
-    "Economy",
-    "Automotive",
-    "Soccer",
-    "Hockey",
-    "Racing",
-    "Snowboarding",
-    "Olympics",
-    "NCAA",
-    "Football",
-    "NFL",
-    "Baseball",
-    "Tennis",
-    "Running",
-    "Swimming",
-    "Golf",
-    "MLB",
-    "PGA",
-    "NHL",
-    "FIFA",
-    "Video Games",
-    "Music",
-    "Books",
-    "Internet",
-    "TV",
-    "Movies",
-    "Clothes",
-    "Home",
-    "Work",
-    "Animals"
-  ],
-  "sources":[
-    "NY Times",
-    "Guardian",
-    "BBC",
-    "ESPN",
-    "Chicago Tribune",
-    "Washington Post",
-    "Buzzfeed"
   ]
+
 }

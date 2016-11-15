@@ -15,6 +15,6 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     protected void goToTopics(View view){
-        //startActivity(new Intent(this, TopicActivity.class));
+        startActivity(new Intent(this, Topics.class));
     }
 }

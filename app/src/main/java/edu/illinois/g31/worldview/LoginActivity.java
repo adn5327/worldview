@@ -67,6 +67,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        final AutoCompleteTextView usernameField = (AutoCompleteTextView) this.findViewById(R.id.username);
+        Button login = (Button)this.findViewById(R.id.email_sign_in_button);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = usernameField.getText().toString();
+                Intent newsfeed = new Intent(LoginActivity.this, NewsFeed.class);
+                newsfeed.putExtra("username", username);
+                startActivity(newsfeed);
+            }
+        });
+
+
         /*
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

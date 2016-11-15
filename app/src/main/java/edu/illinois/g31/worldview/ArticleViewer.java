@@ -31,7 +31,7 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setNavigationIcon(R.mipmap.ic_menu_black_48dp); // place icon in upper left
+        myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
         setSupportActionBar(myToolbar);
 
         //set up the nav drawer
