@@ -16,8 +16,14 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".NewsFeed" />
-        <activity android:name=".ArticleViewer" />
+        <activity android:name=".NewsFeed">
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".ArticleViewer">
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
         <activity android:name=".Topics" />
         <activity android:name=".Sources" />
         <activity

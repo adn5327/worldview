@@ -13,12 +13,21 @@
     <item
         android:id="@+id/action_search"
         android:icon="@mipmap/ic_search_black_24dp"
-        app:showAsAction="ifRoom"
-        android:title="@string/search_button" />
+        app:showAsAction="collapseActionView|ifRoom"
+        android:title="@string/search_button"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
+
+    <!--<item android:id="@+id/search"-->
+        <!--android:title="@string/search_title"-->
+        <!--android:icon="@mipmap/ic_search_black_24dp"-->
+        <!--app:showAsAction="collapseActionView|ifRoom"-->
+        <!--android:actionViewClass="android.widget.SearchView" />-->
 
     <!-- "Add Feed", should always be in the overflow -->
     <item android:id="@+id/action_add_feed"
         app:showAsAction="never"
         android:title="@string/add_feed_menu_option" />
+
+
 
 </menu>

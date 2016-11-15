@@ -42,5 +42,6 @@
     <!-- Topics/Sources navigation buttons-->
     <string name="goto_sources_list_button">Next</string>
     <string name="finish_selections_button">Finish</string>
+    <string name="search_title">Search</string>
 
 </resources>
