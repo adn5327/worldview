@@ -69,6 +69,108 @@
         "Politics",
         "Sports"
       ]
+    },
+    {
+      "title": "Person to Know: The Designer Making One-of-a-Kind Pieces From Sustainable Fabrics",
+      "author": "Kin Woo",
+      "source": "NY Times",
+      "text": "When it comes to finding inspiration, the designer John Alexander Skelton is more likely to turn to museums and archives than the internet.",
+      "date": "11/14/16",
+      "tags": [
+        "Fashion",
+        "Style"
+      ]
+    },
+    {
+      "title": "General Managers Revisit Picking Up the Pace on the Field",
+      "author": "Billy Witz and James Wagner",
+      "source": "NY Times",
+      "text": "Believing that the length of games was turning young fans away from the game, Commissioner Rob Manfred made shortening the time of games a priority in his first season.",
+      "date": "11/09/16",
+      "tags": [
+        "Baseball",
+        "Sports"
+      ]
+    },
+    {
+      "title": "Hollande: US 'must respect climate commitments'",
+      "author": "Matt McGrath",
+      "source": "BBC",
+      "text": "French president Francois Hollande says that the US must respect their commitments made under the Paris Climate Agreement.",
+      "date": "11/15/16",
+      "tags": [
+        "Politics",
+        "Donald Trump",
+        "Environment"
+      ]
+    },
+    {
+      "title": "Will Trump make good on Asia threats?",
+      "author": "Karishma Vaswani",
+      "source": "BBC",
+      "text": "Fears over Mr Trump's anti-trade rhetoric were reflected in the falling shares of major Asian exporters on Wednesday - from car makers to cargo firms to shipping companies.",
+      "date": "11/10/16",
+      "tags": [
+        "Donald Trump",
+        "Business",
+        "Economy"
+      ]
+    },
+    {
+      "title": "Facebook’s fake news crisis deepens",
+      "author": "Dave Lee",
+      "source": "BBC",
+      "text": "Despite the best efforts of Mark Zuckerberg to downplay Facebook’s role in the election of Donald Trump, the scrutiny of how fake news is spread on the platform has intensified.",
+      "date": "11/15/16",
+      "tags": [
+        "Politics",
+        "Tech",
+        "Internet"
+      ]
+    },
+    {
+      "title": "U.S. men’s soccer suffers calamitous loss to Costa Rica in World Cup qualifier",
+      "author": "Steven Goff",
+      "source": "Washington Post",
+      "text": "The U.S. World Cup outlook grew darker Tuesday night with a 4-0 away defeat against Costa Rica, the second setback in five days and the worst loss in a qualifier since 1980.",
+      "date": "11/15/16",
+      "tags": [
+        "Soccer",
+        "Sports"
+      ]
+    },
+    {
+      "title": "Michelle Obama makes a pitch to keep her advocacy work alive in a Trump White House",
+      "author": "Krissah Thompson",
+      "source": "Washington Post",
+      "text": "Michelle Obama struck a tone of bipartisanship Monday in her first public remarks since the election — at an event highlighting one of the signature advocacy programs she dearly hopes will survive her departure from the White House.",
+      "date": "11/14/16",
+      "tags": [
+        "Politics",
+        "Style"
+      ]
+    },
+    {
+      "title": "Key figures purged from Trump transition team",
+      "author": "Karen DeYoung and Greg Miller",
+      "source": "Washington Post",
+      "text": "The bloodletting in President-elect Donald Trump’s transition team that began with last week’s ouster of New Jersey Gov. Chris Christie escalated Tuesday with new departures, particularly in the area of national security, as power consolidated within an ever-smaller group of top Trump loyalists.",
+      "date": "11/15/16",
+      "tags": [
+        "Politics",
+        "Donald Trump"
+      ]
+    },
+    {
+      "title": "Twenty years later, ‘Space Jam’ is the movie we never knew we needed",
+      "author": "Elahe Izadi",
+      "source": "Washington Post",
+      "text": "Looking back on the movie starring Michael Jordan and the Looney Tunes gang now, few would have guessed its enduring appeal: Part animation, part live action, this alternate explanation of Jordan’s retirement involves a basketball game against cartoon aliens, the Monstars.",
+      "date": "11/15/16",
+      "tags": [
+        "Entertainment",
+        "Movies"
+      ]
     }
   ]
 }
