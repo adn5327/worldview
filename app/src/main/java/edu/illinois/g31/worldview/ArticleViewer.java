@@ -31,18 +31,7 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
 
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
         setSupportActionBar(myToolbar);
-
-        //set up the nav drawer
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.article_drawer_layout);
-        mDrawerListView = (ListView) findViewById(R.id.article_drawer_list_view);
-        mDrawerListView.setOnItemClickListener(this);
-
-        String[] items = getResources().getStringArray(R.array.article_menu_array);
-        ListAdapter listAdapter = new ArrayAdapter<String>(this,
-                R.layout.nav_drawer_list_item, items);
-        mDrawerListView.setAdapter(listAdapter);
 
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
