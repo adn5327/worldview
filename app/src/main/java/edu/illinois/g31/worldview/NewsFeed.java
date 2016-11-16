@@ -55,6 +55,45 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                 R.layout.nav_drawer_list_item, items);
         mDrawerListView.setAdapter(listAdapter);
 
+        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent();
+                switch (position){
+                    case 0:
+                        //your code to call intent
+                        i.setClass(NewsFeed.this, Sources.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 1:
+                        //your code to call intent
+                        i.setClass(NewsFeed.this, Topics.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 2:
+                        i.setClass(NewsFeed.this, Topics.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 3:
+                        i.setClass(NewsFeed.this, Topics.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 4:
+                        i.setClass(NewsFeed.this, LoginActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    //and so on
+                    default:
+                        break;
+                }
+            }
+        });
+
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
         //Whole feed scroll
