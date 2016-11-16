@@ -1,63 +1,74 @@
 {
   "articles": [
-      {
-        "title": "Trump wins",
-        "author": "John Doe",
-        "source": "NY Times",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
-        "date": "10/21/16",
-        "tags": [
-          "Style"
-        ]
-    } , {
-      "title": "Hillary loses",
-      "author": "Jane Doe",
-      "source": "Huffington Post",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
-      "date": "10/21/16",
-      "tags": [
-        "Politics",
-        "Hillary Clinton"
-      ]
-    } , {
-      "title": "Trump wins",
-      "author": "John Doe",
+    {
+      "title": "Should President Obama pardon Hillary Clinton?",
+      "author": "John Smith",
       "source": "NY Times",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
-      "date": "10/21/16",
+      "text": "President-elect Donald Trump said in an interview on “60 Minutes” that he had not decided whether to prosecute Hillary Clinton. This comes despite claims during his campaign that he would appoint a special prosecutor to look into her use of a private email server when she was secretary of state, as well as repeated calls during his rallies to Lock her up. Should President Obama pardon Clinton for any federal crimes she may have committed?",
+      "date": "11/11/16",
       "tags": [
+        "Hillary Clinton",
+        "Barack Obama",
         "Donald Trump"
       ]
-    } , {
-      "title": "Hillary loses",
+    },
+    {
+      "title": "America's Heroin Trail",
+      "author": "John Smith",
+      "source": "NY Times",
+      "text": "Donald Trump won power with the promise of tackling illegal drug use in America, where more than 10,500 people died from heroin overdose in 2014. Heroin is a rapidly growing problem in the US and much of the supply comes from neighbouring Mexico, where more and more of the drug is being produced, according to White House figures.",
+      "date": "11/11/16",
+      "tags": [
+        "Politics",
+        "Heroin",
+        "Business"
+      ]
+    },
+    {
+      "title": "England Spain 2-2",
       "author": "Jane Doe",
-      "source": "Huffington Post",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
-      "date": "10/21/16",
+      "source": "NY Times",
+      "text": "Gareth Southgate's four-game tenure as England's interim manager ended in disappointment as Spain scored twice in the closing moments to snatch a draw in the Wembley friendly. England looked on course to further bolster Southgate's claims to succeed Sam Allardyce as they impressed and took control through Adam Lallana's early penalty, awarded when Spain keeper Pepe Reina hauled down Jamie Vardy. The Leicester City striker's fine diving header from Jordan Henderson's cross just after the break gave England a lead they did not look like relinquishing as the clock ticked down. Former Liverpool striker Iago Aspas' superb curling finish in the 90th minute gave Spain an unlikely lifeline - and England allowed them to complete the comeback as Isco smuggled home a far-post finish between England substitute keeper Tom Heaton's legs in the fifth and final minute of injury time.",
+      "date": "11/12/16",
       "tags": [
         "Sports"
       ]
-    } , {
-      "title": "Trump wins",
-      "author": "John Doe",
-      "source": "NY Times",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
-      "date": "10/21/16",
-      "tags": [
-        "Politics"
-      ]
-    } , {
-      "title": "Hillary loses",
+    },
+    {
+      "title": "Trump’s administration could upend the Middle East",
       "author": "Jane Doe",
-      "source": "Washington Post",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam non felis rutrum tempus. Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duislobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.Lorem ipsum dolor sit amet,consectetur adipiscing elit. Cras a diam non felis rutrum tempus.Pellentesque quis nunc ut eros maximus molestie. Donec ornare ipsum nunc. Vestibulum ante ipsum primis in faucibusorci luctus et ultrices posuere cubilia Curae; Ut in eros suscipit, maximus arcu et, tristique ipsum. Quisque a felisin urna euismod aliquet. Etiam luctus odio enim, ac posuere nunc cursus vel. Integer vulputate convallis libero.Sed odio lacus, suscipit nec nulla eu, molestie cursus justo. Morbi auctor lacus nisi, id vulputate erat finibus vestibulum.Aliquam non fringilla neque. Praesent eleifend justo et pellentesque convallis. Proin velit ligula, facilisis quiscommodo et, fringilla id tortor. Etiam et arcu ac quam ultrices imperdiet ut ut elit. Praesent augue sapien, porta atante a, placerat fringilla leo. Duis id nibh a ante feugiat tristique. Aliquam aliquet lorem quis pulvinar sodales. Duilobortis urna sit amet nisi gravida viverra. Nam elit eros, auctor a hendrerit quis, egestas vel enim. Duis vel leo vel nunc gravida rhoncus. Vestibulum consectetur ut arcu nec tempus.",
+      "source": "BBC",
+      "text": "The Middle East is bracing for an incoming American president who seems intent on radically reordering the regional balance of power, heralding new uncertainty and perhaps new turmoil for a part of the world already engulfed in multiple wars. So vague and contradictory were many of the pronouncements made by President-elect Donald Trump on the campaign trail that governments and analysts are puzzling out which ones he meant and how he would be able to implement them all. According to the more consistent of his statements, and conversations his advisers have had with analysts and officials, however, Trump will seek to bring about a significant recalibration of the existing order in the Middle East — in favor of Russia, away from Shiite Iran and to the benefit of the Sunni gulf states and Turkey. Some of his declared goals are not so very different from Obama administration policies that were set aside or unfulfilled because they proved too difficult to accomplish — such as the failed push to cooperate with Russia against terrorist groups in Syria and the expectation that Arab states will do more, and pay more, for regional security.",
+      "date": "11/14/16",
+      "tags": [
+        "Politics",
+        "Donald Trump",
+        "Syria",
+        "Middle East"
+      ]
+    },
+    {
+      "title": "Assad hopes for ally in Trump",
+      "author": "Jane Doe",
+      "source": "BBC",
+      "text": "Bashar al-Assad said Mr Trump would be a natural ally if he fulfilled a campaign pledge to fight terrorism.But he said it was dubious whether Mr Trump could live up to his promises.Mr Trump had previously said it was madness to oppose both Syrian forces and IS militants, and that fighting Syria could lead to fighting Russia.Conflict continues to rage in Syria. Government aircraft on Tuesday bombed besieged rebel-held eastern districts of the city of Aleppo for the first time in three weeks, activists said.More than three hundred thousand people have died since the Syrian civil conflict began in March two thousand eleven. Very cautiousSpeaking to Portugals RTP state television, Mr Assad said: We cannot tell anything about what he's going to do, but if... he is going to fight the terrorists, of course we are going to be [an] ally, natural ally in that regard with the Russians, with the Iranians, with many other countries.Mr Assad said that Mr Trump's pledge to focus the fight on Islamic State (IS) militants was promising, but added: Can he deliver?",
       "date": "10/21/16",
       "tags": [
         "Politics",
-        "Hillary Clinton"
+        "Donald Trump",
+        "Syria"
+      ]
+    },
+    {
+      "title": "Pope Francis gets Cubs hat, baseball from Chicago archbishop",
+      "author": "AP",
+      "source": "Washington Post",
+      "text": "Pope Francis now has a blue Chicago Cubs hat to go with his traditional white skull cap. Chicago Archbishop Blase Cupich presented Francis with the hat and what looks like a signed baseball at the Vatican on Tuesday, nearly two weeks after the Cubs won their first World Series since 1908. Cupich shared a photo of Francis holding the items on Twitter . He included the message, News of the Cubs win reached all the way to the Vatican! Cupich says the pope can now celebrate with us and he asks for our prayers! Cupich is set to be made a cardinal by Francis later this week.",
+      "date": "10/21/16",
+      "tags": [
+        "Politics",
+        "Sports"
       ]
     }
-
   ]
-
 }

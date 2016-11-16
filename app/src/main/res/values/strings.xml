@@ -43,5 +43,7 @@
     <string name="goto_sources_list_button">Next</string>
     <string name="finish_selections_button">Finish</string>
     <string name="search_title">Search</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
 
 </resources>

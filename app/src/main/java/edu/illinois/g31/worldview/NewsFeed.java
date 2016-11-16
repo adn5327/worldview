@@ -73,12 +73,12 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         startActivity(i);
                         break;
                     case 2:
-                        i.setClass(NewsFeed.this, Topics.class);
+                        i.setClass(NewsFeed.this, AccountSettingsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         break;
                     case 3:
-                        i.setClass(NewsFeed.this, Topics.class);
+                        i.setClass(NewsFeed.this, HelpActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         break;

@@ -29,6 +29,7 @@ public class Topics extends AppCompatActivity {
             "Style",
             "Donald Trump",
             "Hillary Clinton",
+            "Barack Obama",
             "Presidency",
             "Senate",
             "Immigration",
@@ -74,7 +75,8 @@ public class Topics extends AppCompatActivity {
             "Clothes",
             "Home",
             "Work",
-            "Animals"};
+            "Animals",
+            "Syria"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
