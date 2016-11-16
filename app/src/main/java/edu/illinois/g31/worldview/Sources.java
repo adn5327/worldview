@@ -29,6 +29,9 @@ public class Sources extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sources);
 
+        Bundle user_info =  getIntent().getExtras();
+        final String cur_username = user_info.getString("username");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Select Sources");
@@ -39,6 +42,14 @@ public class Sources extends AppCompatActivity {
         sourceList = (ListView)findViewById(R.id.list);
         finish = (Button)finishButton.findViewById(R.id.button);
         finish.setVisibility(View.VISIBLE);
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newsfeed = new Intent(Sources.this, NewsFeed.class);
+                newsfeed.putExtra("username", cur_username);
+                startActivity(newsfeed);
+            }
+        });
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, sources);
         sourceList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);

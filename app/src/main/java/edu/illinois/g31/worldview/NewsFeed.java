@@ -40,14 +40,6 @@ public class NewsFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
 
-        //Info from login
-        Bundle article_info = getIntent().getExtras();
-        String cur_username = "No name";
-        if(article_info.containsKey("username"))
-            cur_username = article_info.getString("username");
-        if(cur_username.length() == 0)
-            cur_username = "No name";
-
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
@@ -154,13 +146,18 @@ public class NewsFeed extends AppCompatActivity {
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
 
+        //Info from login
+        Bundle article_info = getIntent().getExtras();
+        String cur_username = "No name";
+        if(article_info != null)
+            cur_username = article_info.getString("username");
+
         //init relevant info
         String topics[] = {"Politics", "Style", "Donald Trump", "Baseball"};
         String sources[] = {"BBC", "NY Times", "Washington Post"};
         User user = new User(cur_username, topics, sources);
         System.out.println("Logging in user..");
         System.out.println(user);
-
 
         //JSON parsing
         String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
@@ -224,7 +221,6 @@ public class NewsFeed extends AppCompatActivity {
                 newsFeed.addView(cur_layout);
             }
         }
-
         scroll.addView(newsFeed);
     }
 

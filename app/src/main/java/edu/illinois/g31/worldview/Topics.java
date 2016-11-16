@@ -89,12 +89,23 @@ public class Topics extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Select Topics");
 
+        Bundle user_info =  getIntent().getExtras();
+        final String cur_username = user_info.getString("username");
+
         LayoutInflater inflater = this.getLayoutInflater();
         View nextButton = inflater.inflate(R.layout.activity_topics, null);
 
         topicList = (ListView)findViewById(R.id.list);
         next = (Button)nextButton.findViewById(R.id.button);
         next.setVisibility(View.VISIBLE);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sources = new Intent(Topics.this, Sources.class);
+                sources.putExtra("username", cur_username);
+                startActivity(sources);
+            }
+        });
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, topics);
         topicList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
