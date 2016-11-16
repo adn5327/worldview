@@ -47,5 +47,7 @@
     <string name="remove_title">Remove From Feed</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
 
 </resources>
