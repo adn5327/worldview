@@ -96,18 +96,25 @@ public class Topics extends AppCompatActivity {
         View nextButton = inflater.inflate(R.layout.activity_topics, null);
 
         topicList = (ListView)findViewById(R.id.list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, topics);
+
         next = (Button)nextButton.findViewById(R.id.button);
         next.setVisibility(View.VISIBLE);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SparseBooleanArray checkedArray = topicList.getCheckedItemPositions();
+                String[] checkedTopics = new String[checkedArray.size()];
+                for(int i = 0; i < checkedArray.size(); i++){
+                    checkedTopics[i] = adapter.getItem(checkedArray.keyAt(i));
+                }
                 Intent sources = new Intent(Topics.this, Sources.class);
                 sources.putExtra("username", cur_username);
+                sources.putExtra("topics", checkedTopics);
                 startActivity(sources);
             }
         });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, topics);
         topicList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         topicList.addFooterView(nextButton);
         topicList.setAdapter(adapter);

@@ -5,9 +5,9 @@
 
     <dimen name="feed_title_vertical_padding">5dp</dimen>
     <dimen name="feed_title_horizontal_padding">5dp</dimen>
-    <dimen name="feed_title_text_size">4sp</dimen>
+    <dimen name="feed_title_text_size">5sp</dimen>
 
-    <dimen name="feed_source_vertical_padding">5dp</dimen>
+    <dimen name="feed_source_vertical_padding">1dp</dimen>
     <dimen name="feed_source_horizontal_padding">5dp</dimen>
     <dimen name="feed_source_text_size">4sp</dimen>
 

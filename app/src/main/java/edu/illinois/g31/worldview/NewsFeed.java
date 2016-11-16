@@ -149,12 +149,17 @@ public class NewsFeed extends AppCompatActivity {
         //Info from login
         Bundle article_info = getIntent().getExtras();
         String cur_username = "No name";
-        if(article_info != null)
-            cur_username = article_info.getString("username");
-
-        //init relevant info
         String topics[] = {"Politics", "Style", "Donald Trump", "Baseball"};
         String sources[] = {"BBC", "NY Times", "Washington Post"};
+        if(article_info != null) {
+            cur_username = article_info.getString("username");
+            if(article_info.containsKey("topics")){
+                topics = article_info.getStringArray("topics");
+                sources = article_info.getStringArray("sources");
+            }
+        }
+
+        //init relevant info
         User user = new User(cur_username, topics, sources);
         System.out.println("Logging in user..");
         System.out.println(user);
