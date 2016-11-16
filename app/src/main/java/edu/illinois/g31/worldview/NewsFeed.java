@@ -10,32 +10,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.json.*;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 //TODO add more articles to articles.json
 //TODO link CreateAccount to the new user to fake new accounts
-public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickListener {
+public class NewsFeed extends AppCompatActivity {
 
     //Nav drawer variables
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerListView;
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,31 +47,28 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         //set up the nav drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerListView = (ListView) findViewById(R.id.newsfeed_drawer_list_view);
-        mDrawerListView.setOnItemClickListener(this);
-        
-        String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
-        ListAdapter listAdapter = new ArrayAdapter<String>(this,
-                R.layout.nav_drawer_list_item, items);
-        mDrawerListView.setAdapter(listAdapter);
 
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //following nav drawer code adapted from http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.newsfeed_drawer_list_view);
+
+        // preparing list data
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+        // Listview Group click listener
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                //The groups that don't expand
                 Intent i = new Intent();
-                switch (position){
-                    case 0:
-                        //your code to call intent
-                        i.setClass(NewsFeed.this, Sources.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
-                    case 1:
-                        //your code to call intent
-                        i.setClass(NewsFeed.this, Topics.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
+                switch(groupPosition)  {
                     case 2:
                         i.setClass(NewsFeed.this, AccountSettingsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -89,10 +84,57 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         break;
-                    //and so on
                     default:
                         break;
                 }
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                //Do we need to do anything here?
+            }
+        });
+
+        // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+            }
+        });
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                if (childPosition == listDataChild.get(listDataHeader.get(groupPosition)).size()) {
+                    Intent i = new Intent();
+                    switch(groupPosition)  {
+                        case 0:
+                            i.setClass(NewsFeed.this, Sources.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(i);
+                            break;
+
+                        case 1:
+                            i.setClass(NewsFeed.this, Topics.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(i);
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                return false;
             }
         });
 
@@ -135,9 +177,9 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         cur_layout.getLayoutParams().height);
 
                 cur_layout.setLayoutParams(LP);
-                cur_layout.setOnClickListener(new View.OnClickListener() {
+                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick() {
                         Intent article = new Intent(NewsFeed.this, ArticleViewer.class);
                         article.putExtra("article_title", cur_article.title);
                         article.putExtra("article_source", cur_article.source);
@@ -147,8 +189,6 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         article.putExtra("article_text", cur_article.full_text);
                         startActivity(article);
                     }
-                });
-                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
                     @Override
                     public void onSwipeRight() {
                     }
@@ -175,10 +215,9 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         // 3. Get the AlertDialog from create()
                         AlertDialog dialog = builder.create();
                         dialog.show();
-
-
                     }
                 });
+
 
                 newsFeed.addView(cur_layout);
             }
@@ -229,9 +268,10 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams sourceTextLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        sourceTextLP.addRule(RelativeLayout.RIGHT_OF,titleText.getId());
+        sourceTextLP.addRule(RelativeLayout.BELOW,titleText.getId());
+        sourceTextLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         sourceText.setLayoutParams(sourceTextLP);
-        sourceText.setPadding(getResources().getDimensionPixelSize(R.dimen.feed_source_horizontal_padding),getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
+        sourceText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
         sourceText.setText(source);
         sourceText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_source_text_size));
         sourceText.setTextColor(getResources().getColor(R.color.sourceColor));
@@ -241,7 +281,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams previewTextLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        previewTextLP.addRule(RelativeLayout.BELOW,titleText.getId());
+        previewTextLP.addRule(RelativeLayout.BELOW,sourceText.getId());
         previewTextLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         previewText.setLayoutParams(previewTextLP);
         previewText.setText(preview_text);
@@ -253,7 +293,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams tagListLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        tagListLP.addRule(RelativeLayout.ALIGN_BOTTOM,thumbnail.getId());
+        tagListLP.addRule(RelativeLayout.BELOW,previewText.getId());
         tagListLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         tagList.setLayoutParams(tagListLP);
         TextView tagTexts[] = new TextView[tags.length];
@@ -298,6 +338,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        //TODO:  show the appropriate feed based on selection
         int id = item.getItemId();
         /*if (id == R.id.menu_item) {
             //do something
@@ -305,9 +346,37 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         return super.onOptionsItemSelected(item);
     }
 
-    public void onItemClick(AdapterView parent, View view, int position, long id) {
-        ListView v = (ListView) parent;
-        mDrawerLayout.closeDrawers();
+    /*
+     * Preparing the list data
+     */
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding parent group data
+        String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
+        for (int i=0; i<items.length; i++)
+            listDataHeader.add(items[i]);
+
+        //TODO:  display all the topics/sources with boxes set appropriately
+        // Adding child data
+        List<String> topics = new ArrayList<String>();
+        topics.add("Topic 1");
+        topics.add("Topic 2");
+
+        List<String> sources = new ArrayList<String>();
+        sources.add("Source 1");
+        sources.add("Source 2");
+
+        //make empty lists for other menu options to avoid crashes
+        List<String> emptyList = new ArrayList<String>();
+
+        listDataChild.put(listDataHeader.get(0), sources); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), topics);
+        listDataChild.put(listDataHeader.get(2), emptyList);
+        listDataChild.put(listDataHeader.get(3), emptyList);
+        listDataChild.put(listDataHeader.get(4), emptyList);
+
     }
 
 

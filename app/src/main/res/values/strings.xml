@@ -51,4 +51,7 @@
     <string name="change_email">Change Email</string>
     <string name="change_password">Change Password</string>
 
+    <!-- Nav drawer button-->
+    <string name="add_button">Add...</string>
+
 </resources>

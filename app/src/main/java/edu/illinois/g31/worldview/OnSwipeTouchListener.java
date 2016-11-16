@@ -37,6 +37,11 @@ public class OnSwipeTouchListener implements OnTouchListener {
         public boolean onDown(MotionEvent e) {
             return true;
         }
+        @Override
+        public boolean onSingleTapConfirmed(final MotionEvent e) {
+            onClick(); // my method
+            return super.onSingleTapConfirmed(e);
+        }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
@@ -69,4 +74,6 @@ public class OnSwipeTouchListener implements OnTouchListener {
     public void onSwipeLeft() {
     }
 
+    public void onClick() {
+    }
 }

@@ -3,18 +3,19 @@
     <dimen name="activity_horizontal_margin">12dp</dimen>
     <dimen name="activity_vertical_margin">12dp</dimen>
 
-    <dimen name="feed_title_vertical_padding">10dp</dimen>
-    <dimen name="feed_title_text_size">7sp</dimen>
+    <dimen name="feed_title_vertical_padding">5dp</dimen>
+    <dimen name="feed_title_horizontal_padding">5dp</dimen>
+    <dimen name="feed_title_text_size">4sp</dimen>
 
-    <dimen name="feed_source_vertical_padding">16dp</dimen>
-    <dimen name="feed_source_horizontal_padding">10dp</dimen>
+    <dimen name="feed_source_vertical_padding">5dp</dimen>
+    <dimen name="feed_source_horizontal_padding">5dp</dimen>
     <dimen name="feed_source_text_size">4sp</dimen>
 
-    <dimen name="feed_preview_text_size">4sp</dimen>
+    <dimen name="feed_preview_text_size">3sp</dimen>
 
-    <dimen name="feed_tag_vertical_padding">10dp</dimen>
-    <dimen name="feed_tag_horizontal_padding">10dp</dimen>
-    <dimen name="feed_tag_text_size">5sp</dimen>
+    <dimen name="feed_tag_vertical_padding">5dp</dimen>
+    <dimen name="feed_tag_horizontal_padding">5dp</dimen>
+    <dimen name="feed_tag_text_size">4sp</dimen>
 
     <dimen name="feed_thumbnail_height">100dp</dimen>
     <dimen name="feed_thumbnail_width">100dp</dimen>
