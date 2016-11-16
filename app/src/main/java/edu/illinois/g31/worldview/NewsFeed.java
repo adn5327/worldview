@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -135,9 +136,9 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         cur_layout.getLayoutParams().height);
 
                 cur_layout.setLayoutParams(LP);
-                cur_layout.setOnClickListener(new View.OnClickListener() {
+                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick() {
                         Intent article = new Intent(NewsFeed.this, ArticleViewer.class);
                         article.putExtra("article_title", cur_article.title);
                         article.putExtra("article_source", cur_article.source);
@@ -147,8 +148,6 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         article.putExtra("article_text", cur_article.full_text);
                         startActivity(article);
                     }
-                });
-                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
                     @Override
                     public void onSwipeRight() {
                     }
@@ -175,10 +174,9 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         // 3. Get the AlertDialog from create()
                         AlertDialog dialog = builder.create();
                         dialog.show();
-
-
                     }
                 });
+
 
                 newsFeed.addView(cur_layout);
             }
