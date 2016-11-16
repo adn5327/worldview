@@ -5,6 +5,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 /**
@@ -15,9 +16,11 @@ public class OnSwipeTouchListener implements OnTouchListener {
 
 
     private final GestureDetector gestureDetector;
+    public final RelativeLayout theLayout;
 
-    public OnSwipeTouchListener (Context ctx){
+    public OnSwipeTouchListener (Context ctx, RelativeLayout swipedLayout){
         gestureDetector = new GestureDetector(ctx, new GestureListener());
+        theLayout = swipedLayout;
     }
 
     @Override

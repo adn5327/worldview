@@ -2,8 +2,10 @@ package edu.illinois.g31.worldview;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -121,7 +123,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         ArrayList<Article> articles = JSONParser.getArticles(user, articlejson);
 
         //Make feed
-        LinearLayout newsFeed = new LinearLayout(this);
+        final LinearLayout newsFeed = new LinearLayout(this);
         newsFeed.setOrientation(LinearLayout.VERTICAL);
         RelativeLayout cur_layout;
         if(articles != null) {
@@ -146,6 +148,38 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         startActivity(article);
                     }
                 });
+                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
+                    @Override
+                    public void onSwipeRight() {
+                    }
+                    @Override
+                    public void onSwipeLeft() {
+                        // 1. Instantiate an AlertDialog.Builder with its constructor
+                        AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
+
+                        // 2. Chain together various setter methods to set the dialog characteristics
+                        builder.setMessage(R.string.remove_from_feed)
+                                .setTitle(R.string.remove_title);
+
+                        // Add the buttons
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                newsFeed.removeView(theLayout);
+                            }
+                        });
+                        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+                        // 3. Get the AlertDialog from create()
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+
+
+                    }
+                });
+
                 newsFeed.addView(cur_layout);
             }
         }
