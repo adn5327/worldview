@@ -40,6 +40,14 @@ public class NewsFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
 
+        //Info from login
+        Bundle article_info = getIntent().getExtras();
+        String cur_username = "No name";
+        if(article_info.containsKey("username"))
+            cur_username = article_info.getString("username");
+        if(cur_username.length() == 0)
+            cur_username = "No name";
+
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
@@ -110,6 +118,7 @@ public class NewsFeed extends AppCompatActivity {
         });
 
         // Listview on child click listener
+        final String finalCur_username = cur_username;  //temp variable for intent
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
@@ -121,12 +130,14 @@ public class NewsFeed extends AppCompatActivity {
                         case 0:
                             i.setClass(NewsFeed.this, Sources.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            i.putExtra("username", finalCur_username);
                             startActivity(i);
                             break;
 
                         case 1:
                             i.setClass(NewsFeed.this, Topics.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            i.putExtra("username", finalCur_username);
                             startActivity(i);
                             break;
 
@@ -142,15 +153,6 @@ public class NewsFeed extends AppCompatActivity {
 
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
-
-        //Info from login
-        Bundle article_info = getIntent().getExtras();
-        String cur_username = "No name";
-        if(article_info.containsKey("username"))
-            cur_username = article_info.getString("username");
-        if(cur_username.length() == 0)
-            cur_username = "No name";
-
 
         //init relevant info
         String topics[] = {"Politics", "Style", "Donald Trump", "Baseball"};

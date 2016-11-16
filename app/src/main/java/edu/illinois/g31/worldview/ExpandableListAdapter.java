@@ -57,7 +57,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 TextView txtListChild = (TextView) convertView
                         .findViewById(R.id.lblListItem);
 
-                txtListChild.setText(childText);
+                if (txtListChild != null)
+                    txtListChild.setText(childText);
             }
             //the last row is used as footer
             else if(childPosition == getChildrenCount(groupPosition)-1)  {

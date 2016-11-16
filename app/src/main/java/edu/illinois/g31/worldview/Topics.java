@@ -104,6 +104,16 @@ public class Topics extends AppCompatActivity {
 
     public void goToSources(View view){
         Intent activity = new Intent(this, Sources.class);
+
+        //get username
+        Bundle article_info = getIntent().getExtras();
+        String cur_username = "No name";
+        if(article_info.containsKey("username"))
+            cur_username = article_info.getString("username");
+        if(cur_username.length() == 0)
+            cur_username = "No name";
+        activity.putExtra("username", cur_username);
+
         startActivity(activity);
     }
 }

@@ -44,10 +44,21 @@ public class Sources extends AppCompatActivity {
         sourceList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         sourceList.addFooterView(finishButton);
         sourceList.setAdapter(adapter);
+
     }
 
     public void goToNewsFeed(View view){
         Intent activity = new Intent(this, NewsFeed.class);
+
+        //get username
+        Bundle article_info = getIntent().getExtras();
+        String cur_username = "No name";
+        if(article_info.containsKey("username"))
+            cur_username = article_info.getString("username");
+        if(cur_username.length() == 0)
+            cur_username = "No name";
+
+        activity.putExtra("username", cur_username);
         startActivity(activity);
     }
 }
