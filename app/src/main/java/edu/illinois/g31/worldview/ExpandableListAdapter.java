@@ -43,25 +43,56 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final String childText = (String) getChild(groupPosition, childPosition);
+        //if in first two groups, there's a footer
+        if (groupPosition==0 || groupPosition==1)  {
+            if(childPosition<getChildrenCount(groupPosition)-1) {
+                final String childText = (String) getChild(groupPosition, childPosition);
 
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this._context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.list_item, null);
+                if (convertView == null) {
+                    LayoutInflater infalInflater = (LayoutInflater) this._context
+                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = infalInflater.inflate(R.layout.list_item, null);
+                }
+
+                TextView txtListChild = (TextView) convertView
+                        .findViewById(R.id.lblListItem);
+
+                txtListChild.setText(childText);
+            }
+            //the last row is used as footer
+            else if(childPosition == getChildrenCount(groupPosition)-1)  {
+                if (convertView == null) {
+                    LayoutInflater infalInflater = (LayoutInflater) this._context
+                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    convertView = infalInflater.inflate(R.layout.child_footer, null);
+                }
+                TextView add = (TextView) convertView.findViewById(R.id.add);
+
+            }
+        }  else  {  //no footer
+            final String childText = (String) getChild(groupPosition, childPosition);
+            if (convertView == null) {
+                LayoutInflater infalInflater = (LayoutInflater) this._context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = infalInflater.inflate(R.layout.list_item, null);
+            }
+
+            TextView txtListChild = (TextView) convertView
+                    .findViewById(R.id.lblListItem);
+
+            txtListChild.setText(childText);
         }
 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.lblListItem);
-
-        txtListChild.setText(childText);
         return convertView;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-                .size();
+        //if in first two groups, add 1 for footer
+        if (groupPosition==0 || groupPosition==1)
+            return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size() + 1;
+        else
+            return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
     }
 
     @Override

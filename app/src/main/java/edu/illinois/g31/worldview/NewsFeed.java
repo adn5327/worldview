@@ -10,24 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -124,46 +115,28 @@ public class NewsFeed extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                if (childPosition == listDataChild.get(listDataHeader.get(groupPosition)).size() -1) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            listDataHeader.get(groupPosition)
-                                    + " : "
-                                    + listDataChild.get(
-                                    listDataHeader.get(groupPosition)).get(
-                                    childPosition), Toast.LENGTH_SHORT)
-                            .show();
+                if (childPosition == listDataChild.get(listDataHeader.get(groupPosition)).size()) {
+                    Intent i = new Intent();
+                    switch(groupPosition)  {
+                        case 0:
+                            i.setClass(NewsFeed.this, Sources.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(i);
+                            break;
+
+                        case 1:
+                            i.setClass(NewsFeed.this, Topics.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(i);
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
                 return false;
             }
         });
-
-        //These are the old links to the source/topic activities.
-        // We may still want to add these to the nav drawer as the "+" buttons in the sketches
-        /*expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent();
-                switch (position){
-                    case 0:
-                        //your code to call intent
-                        i.setClass(NewsFeed.this, Sources.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
-                    case 1:
-                        //your code to call intent
-                        i.setClass(NewsFeed.this, Topics.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
-
-                    //and so on
-                    default:
-                        break;
-                }
-            }
-        }); */
 
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
@@ -390,12 +363,10 @@ public class NewsFeed extends AppCompatActivity {
         List<String> topics = new ArrayList<String>();
         topics.add("Topic 1");
         topics.add("Topic 2");
-        topics.add("Add...");
 
         List<String> sources = new ArrayList<String>();
         sources.add("Source 1");
         sources.add("Source 2");
-        sources.add("Add...");
 
         //make empty lists for other menu options to avoid crashes
         List<String> emptyList = new ArrayList<String>();
