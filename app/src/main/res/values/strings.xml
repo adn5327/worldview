@@ -42,6 +42,7 @@
     <!-- Topics/Sources navigation buttons-->
     <string name="goto_sources_list_button">Next</string>
     <string name="finish_selections_button">Finish</string>
+
     <string name="search_title">Search</string>
     <string name="remove_from_feed">Are you sure you want to remove this article from the feed?</string>
     <string name="remove_title">Remove From Feed</string>
