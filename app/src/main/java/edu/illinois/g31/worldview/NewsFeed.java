@@ -227,9 +227,10 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams sourceTextLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        sourceTextLP.addRule(RelativeLayout.RIGHT_OF,titleText.getId());
+        sourceTextLP.addRule(RelativeLayout.BELOW,titleText.getId());
+        sourceTextLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         sourceText.setLayoutParams(sourceTextLP);
-        sourceText.setPadding(getResources().getDimensionPixelSize(R.dimen.feed_source_horizontal_padding),getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
+        sourceText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
         sourceText.setText(source);
         sourceText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_source_text_size));
         sourceText.setTextColor(getResources().getColor(R.color.sourceColor));
@@ -239,7 +240,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams previewTextLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        previewTextLP.addRule(RelativeLayout.BELOW,titleText.getId());
+        previewTextLP.addRule(RelativeLayout.BELOW,sourceText.getId());
         previewTextLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         previewText.setLayoutParams(previewTextLP);
         previewText.setText(preview_text);
@@ -251,7 +252,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         RelativeLayout.LayoutParams tagListLP = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        tagListLP.addRule(RelativeLayout.ALIGN_BOTTOM,thumbnail.getId());
+        tagListLP.addRule(RelativeLayout.BELOW,previewText.getId());
         tagListLP.addRule(RelativeLayout.RIGHT_OF,thumbnail.getId());
         tagList.setLayoutParams(tagListLP);
         TextView tagTexts[] = new TextView[tags.length];
