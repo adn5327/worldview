@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -24,19 +25,24 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 //TODO add more articles to articles.json
 //TODO link CreateAccount to the new user to fake new accounts
-public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickListener {
+public class NewsFeed extends AppCompatActivity {
 
     //Nav drawer variables
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerListView;
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +56,91 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
 
         //set up the nav drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerListView = (ListView) findViewById(R.id.newsfeed_drawer_list_view);
-        mDrawerListView.setOnItemClickListener(this);
-        
-        String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
-        ListAdapter listAdapter = new ArrayAdapter<String>(this,
-                R.layout.nav_drawer_list_item, items);
-        mDrawerListView.setAdapter(listAdapter);
 
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //following nav drawer code adapted from http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.newsfeed_drawer_list_view);
+
+        // preparing list data
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+        // Listview Group click listener
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                //The groups that don't expand
+                Intent i = new Intent();
+                switch(groupPosition)  {
+                    case 2:
+                        i.setClass(NewsFeed.this, AccountSettingsActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 3:
+                        i.setClass(NewsFeed.this, HelpActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    case 4:
+                        i.setClass(NewsFeed.this, LoginActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                //Do we need to do anything here?
+            }
+        });
+
+        // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+            }
+        });
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                if (childPosition == listDataChild.get(listDataHeader.get(groupPosition)).size() -1) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            listDataHeader.get(groupPosition)
+                                    + " : "
+                                    + listDataChild.get(
+                                    listDataHeader.get(groupPosition)).get(
+                                    childPosition), Toast.LENGTH_SHORT)
+                            .show();
+                }
+                return false;
+            }
+        });
+
+        //These are the old links to the source/topic activities.
+        // We may still want to add these to the nav drawer as the "+" buttons in the sketches
+        /*expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent();
@@ -75,27 +157,13 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         break;
-                    case 2:
-                        i.setClass(NewsFeed.this, AccountSettingsActivity.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
-                    case 3:
-                        i.setClass(NewsFeed.this, HelpActivity.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
-                    case 4:
-                        i.setClass(NewsFeed.this, LoginActivity.class);
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(i);
-                        break;
+
                     //and so on
                     default:
                         break;
                 }
             }
-        });
+        }); */
 
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
 
@@ -297,6 +365,7 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        //TODO:  show the appropriate feed based on selection
         int id = item.getItemId();
         /*if (id == R.id.menu_item) {
             //do something
@@ -304,9 +373,39 @@ public class NewsFeed extends AppCompatActivity implements ListView.OnItemClickL
         return super.onOptionsItemSelected(item);
     }
 
-    public void onItemClick(AdapterView parent, View view, int position, long id) {
-        ListView v = (ListView) parent;
-        mDrawerLayout.closeDrawers();
+    /*
+     * Preparing the list data
+     */
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding parent group data
+        String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
+        for (int i=0; i<items.length; i++)
+            listDataHeader.add(items[i]);
+
+        //TODO:  display all the topics/sources with boxes set appropriately
+        // Adding child data
+        List<String> topics = new ArrayList<String>();
+        topics.add("Topic 1");
+        topics.add("Topic 2");
+        topics.add("Add...");
+
+        List<String> sources = new ArrayList<String>();
+        sources.add("Source 1");
+        sources.add("Source 2");
+        sources.add("Add...");
+
+        //make empty lists for other menu options to avoid crashes
+        List<String> emptyList = new ArrayList<String>();
+
+        listDataChild.put(listDataHeader.get(0), sources); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), topics);
+        listDataChild.put(listDataHeader.get(2), emptyList);
+        listDataChild.put(listDataHeader.get(3), emptyList);
+        listDataChild.put(listDataHeader.get(4), emptyList);
+
     }
 
 
