@@ -76,6 +76,10 @@ public class NewsFeed extends AppCompatActivity {
         System.out.println("Logging in user..");
         System.out.println(user);
 
+
+        makeFeed();
+    }
+    public void makeFeed(){
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
@@ -152,7 +156,7 @@ public class NewsFeed extends AppCompatActivity {
         });
 
         // Listview on child click listener
-        final String finalCur_username = cur_username;  //temp variable for intent
+        final String finalCur_username = user.name;  //temp variable for intent
         final ArrayList<String> finalTopics = user.curFeed.topics;
         final ArrayList<String> finalSources = user.curFeed.sources;
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -200,10 +204,6 @@ public class NewsFeed extends AppCompatActivity {
         expListView.expandGroup(1);
 
         myToolbar.setTitle(user.curFeed.feedname);
-
-        makeFeed();
-    }
-    public void makeFeed(){
 
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
@@ -393,7 +393,7 @@ public class NewsFeed extends AppCompatActivity {
         //TODO:  show the appropriate feed based on selection
         int id = item.getItemId();
         System.out.println(id);
-        if (id == 3333333) {
+        if (id == 333333) {
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
 
@@ -409,7 +409,6 @@ public class NewsFeed extends AppCompatActivity {
                     Intent activity = new Intent(NewsFeed.this, Topics.class);
                     activity.putExtra("username", user.name);
                     activity.putExtra("feed_name", edittxt.getText());
-                    activity.putExtra("feeds", user.feeds);
                     startActivity(activity);
                 }
             });
