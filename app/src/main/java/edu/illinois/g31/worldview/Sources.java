@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Sources extends AppCompatActivity {
 
     ListView sourceList;
@@ -32,7 +35,10 @@ public class Sources extends AppCompatActivity {
 
         Bundle user_info =  getIntent().getExtras();
         final String cur_username = user_info.getString("username");
-        final String[] topics = user_info.getStringArray("topics");
+        final ArrayList<String> topics = user_info.getStringArrayList("topics");
+        ArrayList<String> precheckedSources = new ArrayList<>(Arrays.asList("NY Times","BBC"));
+        if(user_info.containsKey("sources"))
+            precheckedSources = user_info.getStringArrayList("sources");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,14 +56,15 @@ public class Sources extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SparseBooleanArray checkedArray = sourceList.getCheckedItemPositions();
-                String[] checkedSources = new String[checkedArray.size()];
+                ArrayList<String> checkedSources = new ArrayList<>();
                 for(int i = 0; i < checkedArray.size(); i++){
-                    checkedSources[i] = adapter.getItem(checkedArray.keyAt(i));
+                    if(checkedArray.valueAt(i))
+                        checkedSources.add(adapter.getItem(checkedArray.keyAt(i)));
                 }
                 Intent newsfeed = new Intent(Sources.this, NewsFeed.class);
                 newsfeed.putExtra("username", cur_username);
-                newsfeed.putExtra("topics", topics);
-                newsfeed.putExtra("sources", checkedSources);
+                newsfeed.putStringArrayListExtra("topics", topics);
+                newsfeed.putStringArrayListExtra("sources", checkedSources);
                 startActivity(newsfeed);
             }
         });
@@ -65,21 +72,9 @@ public class Sources extends AppCompatActivity {
         sourceList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         sourceList.addFooterView(finishButton);
         sourceList.setAdapter(adapter);
+        for(String source : precheckedSources)
+            sourceList.setItemChecked(adapter.getPosition(source),true);
 
     }
 
-    public void goToNewsFeed(View view){
-        Intent activity = new Intent(this, NewsFeed.class);
-
-        //get username
-        Bundle article_info = getIntent().getExtras();
-        String cur_username = "No name";
-        if(article_info.containsKey("username"))
-            cur_username = article_info.getString("username");
-        if(cur_username.length() == 0)
-            cur_username = "No name";
-
-        activity.putExtra("username", cur_username);
-        startActivity(activity);
-    }
 }

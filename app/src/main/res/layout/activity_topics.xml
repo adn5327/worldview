@@ -14,17 +14,28 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar" />
 
-    <ListView
-        android:id="@+id/list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical">
 
-    <Button
-        android:text="@string/goto_sources_list_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:visibility="gone" />
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <Button
+            android:text="@string/goto_sources_list_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/menu_button_min_height"
+            android:id="@+id/button"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

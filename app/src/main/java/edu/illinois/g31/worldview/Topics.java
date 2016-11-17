@@ -12,6 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Topics extends AppCompatActivity {
 
@@ -91,47 +95,47 @@ public class Topics extends AppCompatActivity {
 
         Bundle user_info =  getIntent().getExtras();
         final String cur_username = user_info.getString("username");
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        View nextButton = inflater.inflate(R.layout.activity_topics, null);
+        final boolean topicsOnly = user_info.containsKey("topics_only");
+        ArrayList<String> precheckedTopics = new ArrayList<>(Arrays.asList("Politics"));
+        ArrayList<String> precheckedSources = new ArrayList<>();
+        if(user_info.containsKey("topics"))
+            precheckedTopics = user_info.getStringArrayList("topics");
+        if(user_info.containsKey("sources"))
+            precheckedSources = user_info.getStringArrayList("sources");
+        final ArrayList<String> final_sources = precheckedSources;
 
         topicList = (ListView)findViewById(R.id.list);
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, topics);
 
-        next = (Button)nextButton.findViewById(R.id.button);
+        topicList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        topicList.setAdapter(adapter);
+        for(String topic : precheckedTopics)
+            topicList.setItemChecked(adapter.getPosition(topic),true);
+
+        next = (Button)findViewById(R.id.button);
         next.setVisibility(View.VISIBLE);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SparseBooleanArray checkedArray = topicList.getCheckedItemPositions();
-                String[] checkedTopics = new String[checkedArray.size()];
+                ArrayList<String> checkedTopics = new ArrayList<>();
                 for(int i = 0; i < checkedArray.size(); i++){
-                    checkedTopics[i] = adapter.getItem(checkedArray.keyAt(i));
+                    if(checkedArray.valueAt(i))
+                        checkedTopics.add(adapter.getItem(checkedArray.keyAt(i)));
                 }
-                Intent sources = new Intent(Topics.this, Sources.class);
-                sources.putExtra("username", cur_username);
-                sources.putExtra("topics", checkedTopics);
-                startActivity(sources);
+                Intent activity;
+                if(topicsOnly)
+                    activity = new Intent(Topics.this, NewsFeed.class);
+                else
+                    activity = new Intent(Topics.this, Sources.class);
+                activity.putExtra("username", cur_username);
+                activity.putStringArrayListExtra("topics",checkedTopics);
+                if(final_sources.size() != 0)
+                    activity.putStringArrayListExtra("sources", final_sources);
+                startActivity(activity);
             }
         });
 
-        topicList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        topicList.addFooterView(nextButton);
-        topicList.setAdapter(adapter);
     }
 
-    public void goToSources(View view){
-        Intent activity = new Intent(this, Sources.class);
-
-        //get username
-        Bundle article_info = getIntent().getExtras();
-        String cur_username = "No name";
-        if(article_info.containsKey("username"))
-            cur_username = article_info.getString("username");
-        if(cur_username.length() == 0)
-            cur_username = "No name";
-        activity.putExtra("username", cur_username);
-
-        startActivity(activity);
-    }
 }

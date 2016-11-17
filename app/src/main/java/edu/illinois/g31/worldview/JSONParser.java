@@ -66,13 +66,11 @@ public class JSONParser {
     public static boolean includeArticle(User user, String[] tags, String source){
         boolean topicPass = false;
         boolean sourcePass = false;
-        for(int i = 0; i < user.topics.length; i++)
-            for(int j = 0; j < tags.length; j++)
-                if(user.topics[i].equals(tags[j]))
-                    topicPass = true;
-        for(int i = 0; i < user.sources.length; i++)
-            if(user.sources[i].equals(source))
-                sourcePass = true;
+        for(int j = 0; j < tags.length; j++)
+            if(user.topics.contains(tags[j]))
+                topicPass = true;
+        if(user.sources.contains(source))
+            sourcePass = true;
         return topicPass && sourcePass;
     }
 }

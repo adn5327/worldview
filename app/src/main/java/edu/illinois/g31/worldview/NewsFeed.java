@@ -21,6 +21,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,14 +44,14 @@ public class NewsFeed extends AppCompatActivity {
         //Info from login
         Bundle article_info = getIntent().getExtras();
         String cur_username = "No name";
-        String topics[] = {"Politics", "Style", "Donald Trump", "Baseball"};
-        String sources[] = {"BBC", "NY Times", "Washington Post"};
+        ArrayList<String> topics = new ArrayList<>(Arrays.asList("Politics", "Style", "Donald Trump", "Baseball"));
+        ArrayList<String> sources = new ArrayList<>(Arrays.asList("BBC", "NY Times", "Washington Post"));
         if(article_info != null) {
             cur_username = article_info.getString("username");
-            if(article_info.containsKey("topics")){
-                topics = article_info.getStringArray("topics");
-                sources = article_info.getStringArray("sources");
-            }
+            if(article_info.containsKey("topics"))
+                topics = article_info.getStringArrayList("topics");
+            if(article_info.containsKey("sources"))
+                sources = article_info.getStringArrayList("sources");
         }
 
         //init relevant info
@@ -71,7 +72,7 @@ public class NewsFeed extends AppCompatActivity {
         expListView = (ExpandableListView) findViewById(R.id.newsfeed_drawer_list_view);
 
         // preparing list data
-        prepareListData();
+        prepareListData(user);
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
@@ -129,6 +130,8 @@ public class NewsFeed extends AppCompatActivity {
 
         // Listview on child click listener
         final String finalCur_username = cur_username;  //temp variable for intent
+        final ArrayList<String> finalTopics = user.topics;
+        final ArrayList<String> finalSources = user.sources;
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
@@ -141,6 +144,8 @@ public class NewsFeed extends AppCompatActivity {
                             i.setClass(NewsFeed.this, Sources.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.putExtra("username", finalCur_username);
+                            i.putStringArrayListExtra("sources",finalSources);
+                            i.putStringArrayListExtra("topics",finalTopics);
                             startActivity(i);
                             break;
 
@@ -148,6 +153,9 @@ public class NewsFeed extends AppCompatActivity {
                             i.setClass(NewsFeed.this, Topics.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.putExtra("username", finalCur_username);
+                            i.putExtra("topics_only",true);
+                            i.putStringArrayListExtra("sources",finalSources);
+                            i.putStringArrayListExtra("topics",finalTopics);
                             startActivity(i);
                             break;
 
@@ -163,8 +171,6 @@ public class NewsFeed extends AppCompatActivity {
 
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
-
-
 
         //JSON parsing
         String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
@@ -354,7 +360,7 @@ public class NewsFeed extends AppCompatActivity {
     /*
      * Preparing the list data
      */
-    private void prepareListData() {
+    private void prepareListData(User user) {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
@@ -365,19 +371,14 @@ public class NewsFeed extends AppCompatActivity {
 
         //TODO:  display all the topics/sources with boxes set appropriately
         // Adding child data
-        List<String> topics = new ArrayList<String>();
-        topics.add("Topic 1");
-        topics.add("Topic 2");
 
-        List<String> sources = new ArrayList<String>();
-        sources.add("Source 1");
-        sources.add("Source 2");
+
 
         //make empty lists for other menu options to avoid crashes
         List<String> emptyList = new ArrayList<String>();
 
-        listDataChild.put(listDataHeader.get(0), sources); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), topics);
+        listDataChild.put(listDataHeader.get(0), user.sources); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), user.topics);
         listDataChild.put(listDataHeader.get(2), emptyList);
         listDataChild.put(listDataHeader.get(3), emptyList);
         listDataChild.put(listDataHeader.get(4), emptyList);

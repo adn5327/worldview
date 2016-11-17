@@ -40,8 +40,8 @@
     <string name="download_button">Download</string>
 
     <!-- Topics/Sources navigation buttons-->
-    <string name="goto_sources_list_button">Next</string>
-    <string name="finish_selections_button">Finish</string>
+    <string name="goto_sources_list_button">Done</string>
+    <string name="finish_selections_button">Done</string>
 
     <string name="search_title">Search</string>
     <string name="remove_from_feed">Are you sure you want to remove this article from the feed?</string>
@@ -52,6 +52,6 @@
     <string name="change_password">Change Password</string>
 
     <!-- Nav drawer button-->
-    <string name="add_button">Add...</string>
+    <string name="add_button">Edit</string>
 
 </resources>
