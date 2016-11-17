@@ -96,8 +96,13 @@ public class Topics extends AppCompatActivity {
         Bundle user_info =  getIntent().getExtras();
         final String cur_username = user_info.getString("username");
         final boolean topicsOnly = user_info.containsKey("topics_only");
-        ArrayList<String> precheckedTopics = new ArrayList<>(Arrays.asList("Politics"));
+        ArrayList<String> precheckedTopics = new ArrayList<>(Arrays.asList("Politics","Donald Trump", "Hillary Clinton", "Barack Obama", "Style"));
         ArrayList<String> precheckedSources = new ArrayList<>();
+        final boolean create;
+        if(user_info.containsKey("create"))
+            create = true;
+        else
+            create = false;
         if(user_info.containsKey("topics"))
             precheckedTopics = user_info.getStringArrayList("topics");
         if(user_info.containsKey("sources"))
@@ -130,6 +135,8 @@ public class Topics extends AppCompatActivity {
                     activity = new Intent(Topics.this, Sources.class);
                 activity.putExtra("username", cur_username);
                 activity.putStringArrayListExtra("topics",checkedTopics);
+                if(create)
+                    activity.putExtra("create", true);
                 if(final_sources.size() != 0)
                     activity.putStringArrayListExtra("sources", final_sources);
                 startActivity(activity);

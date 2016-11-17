@@ -36,7 +36,12 @@ public class Sources extends AppCompatActivity {
         Bundle user_info =  getIntent().getExtras();
         final String cur_username = user_info.getString("username");
         final ArrayList<String> topics = user_info.getStringArrayList("topics");
-        ArrayList<String> precheckedSources = new ArrayList<>(Arrays.asList("NY Times","BBC"));
+        ArrayList<String> precheckedSources = new ArrayList<>(Arrays.asList("NY Times","Guardian", "BBC"));
+        final boolean create;
+        if(user_info.containsKey("create"))
+            create = true;
+        else
+            create = false;
         if(user_info.containsKey("sources"))
             precheckedSources = user_info.getStringArrayList("sources");
 
@@ -65,6 +70,8 @@ public class Sources extends AppCompatActivity {
                 newsfeed.putExtra("username", cur_username);
                 newsfeed.putStringArrayListExtra("topics", topics);
                 newsfeed.putStringArrayListExtra("sources", checkedSources);
+                if(create)
+                    newsfeed.putExtra("create", true);
                 startActivity(newsfeed);
             }
         });

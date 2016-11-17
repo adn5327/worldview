@@ -23,6 +23,7 @@ public class CreateAccount extends AppCompatActivity {
                 String username = usernameField.getText().toString();
                 Intent topics = new Intent(CreateAccount.this, Topics.class);
                 topics.putExtra("username", username);
+                topics.putExtra("create", true);
                 startActivity(topics);
             }
         });

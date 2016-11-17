@@ -24,9 +24,9 @@
         <!--android:actionViewClass="android.widget.SearchView" />-->
 
     <!-- "Add Feed", should always be in the overflow -->
-    <item android:id="@+id/action_add_feed"
+    <!--<item android:id="@+id/action_add_feed"
         app:showAsAction="never"
-        android:title="@string/add_feed_menu_option" />
+        android:title="@string/add_feed_menu_option" />-->
 
 
 

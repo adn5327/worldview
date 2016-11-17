@@ -4,15 +4,19 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.internal.NavigationMenu;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.ActionMenuItem;
+import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,6 +38,7 @@ public class NewsFeed extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
+    User user;
     HashMap<String, List<String>> listDataChild;
 
     @Override
@@ -46,16 +51,28 @@ public class NewsFeed extends AppCompatActivity {
         String cur_username = "No name";
         ArrayList<String> topics = new ArrayList<>(Arrays.asList("Politics", "Style", "Donald Trump", "Baseball"));
         ArrayList<String> sources = new ArrayList<>(Arrays.asList("BBC", "NY Times", "Washington Post"));
-        if(article_info != null) {
+        ArrayList<String> topics2 = new ArrayList<>(Arrays.asList("Sports", "Tech", "Entertainment"));
+        ArrayList<String> sources2 = new ArrayList<>(Arrays.asList("Washington Post", "NY Times", "Guardian", "BBC", "Huffington Post"));
+        ArrayList<Feed> user_feeds = new ArrayList<>();
+        boolean createAccount = false;
+        if (article_info != null) {
             cur_username = article_info.getString("username");
-            if(article_info.containsKey("topics"))
+            if (article_info.containsKey("topics"))
                 topics = article_info.getStringArrayList("topics");
-            if(article_info.containsKey("sources"))
+            if (article_info.containsKey("sources"))
                 sources = article_info.getStringArrayList("sources");
-        }
+            if(article_info.containsKey("create"))
+                createAccount = true;
 
+
+        }
         //init relevant info
-        User user = new User(cur_username, topics, sources);
+        Feed default_feed = new Feed("Default", topics, sources);
+        Feed feed_2 = new Feed("Alternate", topics2, sources2);
+        user_feeds.add(default_feed);
+        if(!createAccount)
+            user_feeds.add(feed_2);
+        user = new User(cur_username, user_feeds);
         System.out.println("Logging in user..");
         System.out.println(user);
 
@@ -136,8 +153,8 @@ public class NewsFeed extends AppCompatActivity {
 
         // Listview on child click listener
         final String finalCur_username = cur_username;  //temp variable for intent
-        final ArrayList<String> finalTopics = user.topics;
-        final ArrayList<String> finalSources = user.sources;
+        final ArrayList<String> finalTopics = user.curFeed.topics;
+        final ArrayList<String> finalSources = user.curFeed.sources;
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
@@ -145,13 +162,13 @@ public class NewsFeed extends AppCompatActivity {
                                         int groupPosition, int childPosition, long id) {
                 if (childPosition == listDataChild.get(listDataHeader.get(groupPosition)).size()) {
                     Intent i = new Intent();
-                    switch(groupPosition)  {
+                    switch (groupPosition) {
                         case 0:
                             i.setClass(NewsFeed.this, Sources.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.putExtra("username", finalCur_username);
-                            i.putStringArrayListExtra("sources",finalSources);
-                            i.putStringArrayListExtra("topics",finalTopics);
+                            i.putStringArrayListExtra("sources", finalSources);
+                            i.putStringArrayListExtra("topics", finalTopics);
                             startActivity(i);
                             break;
 
@@ -159,9 +176,9 @@ public class NewsFeed extends AppCompatActivity {
                             i.setClass(NewsFeed.this, Topics.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.putExtra("username", finalCur_username);
-                            i.putExtra("topics_only",true);
-                            i.putStringArrayListExtra("sources",finalSources);
-                            i.putStringArrayListExtra("topics",finalTopics);
+                            i.putExtra("topics_only", true);
+                            i.putStringArrayListExtra("sources", finalSources);
+                            i.putStringArrayListExtra("topics", finalTopics);
                             startActivity(i);
                             break;
 
@@ -182,8 +199,15 @@ public class NewsFeed extends AppCompatActivity {
         expListView.expandGroup(0);
         expListView.expandGroup(1);
 
+        myToolbar.setTitle(user.curFeed.feedname);
+
+        makeFeed();
+    }
+    public void makeFeed(){
+
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
+        scroll.removeAllViews();
 
         //JSON parsing
         String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
@@ -351,6 +375,10 @@ public class NewsFeed extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_newsfeed_menu, menu);
+        for(int i = 0; i < user.feeds.size(); i++)
+            menu.add(0, i, 0, user.feeds.get(i).feedname);
+        menu.add(0, 333333, 0, "Add feed");
+
         // Associate searchable configuration with the SearchView
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -364,11 +392,43 @@ public class NewsFeed extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //TODO:  show the appropriate feed based on selection
         int id = item.getItemId();
-        /*if (id == R.id.menu_item) {
-            //do something
-        }*/
+        System.out.println(id);
+        if (id == 3333333) {
+            // 1. Instantiate an AlertDialog.Builder with its constructor
+            AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
+
+            // 2. Chain together various setter methods to set the dialog characteristics
+            final EditText edittxt = new EditText(NewsFeed.this);
+            builder.setTitle(R.string.alert_add_feed_title)
+                    .setView(edittxt);
+
+
+            // Add the buttons
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent activity = new Intent(NewsFeed.this, Topics.class);
+                    activity.putExtra("username", user.name);
+                    activity.putExtra("feed_name", edittxt.getText());
+                    activity.putExtra("feeds", user.feeds);
+                    startActivity(activity);
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                }
+            });
+            // 3. Get the AlertDialog from create()
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        if(id < 10){
+            user.curFeed = user.feeds.get(id);
+            makeFeed();
+        }
         return super.onOptionsItemSelected(item);
     }
+
 
     /*
      * Preparing the list data
@@ -385,8 +445,8 @@ public class NewsFeed extends AppCompatActivity {
         //make empty lists for other menu options to avoid crashes
         List<String> emptyList = new ArrayList<String>();
 
-        listDataChild.put(listDataHeader.get(0), user.sources); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), user.topics);
+        listDataChild.put(listDataHeader.get(0), user.curFeed.sources); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), user.curFeed.topics);
         listDataChild.put(listDataHeader.get(2), emptyList);
         listDataChild.put(listDataHeader.get(3), emptyList);
         listDataChild.put(listDataHeader.get(4), emptyList);

@@ -8,27 +8,35 @@ import java.util.ArrayList;
 
 public class User {
     public String name;
-    public ArrayList<String> topics, sources;
+    public ArrayList<Feed> feeds;
+    public Feed curFeed;
 
     public User(String name) {
         this.name = name;
-        topics = new ArrayList<>();
-        sources = new ArrayList<>();
+        feeds = new ArrayList<>();
+        curFeed = null;
     }
-    public User(String name, ArrayList<String> topics, ArrayList<String> sources){
+    public User(String name, ArrayList<Feed> feeds){
         this.name = name;
-        this.topics = topics;
-        this.sources = sources;
+        this.feeds = feeds;
+        if(feeds.size() > 0)
+            curFeed = this.feeds.get(0);
+        else
+            curFeed = null;
+    }
+    public User(String name, Feed feed){
+        this.name = name;
+        feeds = new ArrayList<Feed>();
+        feeds.add(feed);
+        this.curFeed = feed;
     }
     public String toString(){
         String ret = "";
         ret += "Username: "+name+"\n";
-        ret += "Topics: \n";
-        for(int i = 0; i < this.topics.size(); i++)
-            ret += "\t" + this.topics.get(i) + "\n";
-        ret += "Sources: \n";
-        for(int i = 0; i < this.sources.size(); i++)
-            ret += "\t" + this.sources.get(i) + "\n";
+        ret += "Feeds: \n";
+        for(int i = 0; i < this.feeds.size(); i++) {
+            ret += "\t" + this.feeds.get(i) + "\n";
+        }
         return  ret;
     }
 }
