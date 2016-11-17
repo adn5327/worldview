@@ -85,9 +85,15 @@ public class NewsFeed extends AppCompatActivity {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v,
                                         int groupPosition, long id) {
-                //The groups that don't expand
+
                 Intent i = new Intent();
                 switch(groupPosition)  {
+                    //Disable collapsing to avoid crash
+                    case 0:
+                        return true;
+                    case 1:
+                        return true;
+                    //The groups that don't expand
                     case 2:
                         i.setClass(NewsFeed.this, AccountSettingsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -168,6 +174,13 @@ public class NewsFeed extends AppCompatActivity {
         });
 
         myToolbar.setNavigationOnClickListener(new NavDrawerOnClickListener(mDrawerLayout));
+
+        //Footer bug fix:  Initially open groups programmatically
+        // I only had problems when "Topics" was
+        // expanded before "Sources", so this should avoid the crash.
+        // Still not sure what the root of the problem was, though.
+        expListView.expandGroup(0);
+        expListView.expandGroup(1);
 
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
@@ -368,11 +381,6 @@ public class NewsFeed extends AppCompatActivity {
         String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
         for (int i=0; i<items.length; i++)
             listDataHeader.add(items[i]);
-
-        //TODO:  display all the topics/sources with boxes set appropriately
-        // Adding child data
-
-
 
         //make empty lists for other menu options to avoid crashes
         List<String> emptyList = new ArrayList<String>();

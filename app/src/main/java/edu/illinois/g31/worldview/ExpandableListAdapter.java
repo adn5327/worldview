@@ -43,34 +43,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        //if in first two groups, there's a footer
-        if (groupPosition==0 || groupPosition==1)  {
-            if(childPosition<getChildrenCount(groupPosition)-1) {
-                final String childText = (String) getChild(groupPosition, childPosition);
-
-                if (convertView == null) {
-                    LayoutInflater infalInflater = (LayoutInflater) this._context
-                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    convertView = infalInflater.inflate(R.layout.list_item, null);
-                }
-
-                TextView txtListChild = (TextView) convertView
-                        .findViewById(R.id.lblListItem);
-
-                if (txtListChild != null)
-                    txtListChild.setText(childText);
+        //if in first two groups, there's a footer in the last row
+        if((groupPosition==0 || groupPosition==1) && isLastChild )  {
+            if (convertView == null) {
+                LayoutInflater infalInflater = (LayoutInflater) this._context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = infalInflater.inflate(R.layout.child_footer, null);
             }
-            //the last row is used as footer
-            else if(childPosition == getChildrenCount(groupPosition)-1)  {
-                if (convertView == null) {
-                    LayoutInflater infalInflater = (LayoutInflater) this._context
-                            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    convertView = infalInflater.inflate(R.layout.child_footer, null);
-                }
-                TextView add = (TextView) convertView.findViewById(R.id.add);
+            TextView add = (TextView) convertView.findViewById(R.id.add);
+        }
 
-            }
-        }  else  {  //no footer
+        else  {  //no footer
             final String childText = (String) getChild(groupPosition, childPosition);
             if (convertView == null) {
                 LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -78,10 +61,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 convertView = infalInflater.inflate(R.layout.list_item, null);
             }
 
-            TextView txtListChild = (TextView) convertView
-                    .findViewById(R.id.lblListItem);
+            TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
 
-            txtListChild.setText(childText);
+            //this is the line that was causing problems-- the check is to avoid NPEs
+            // if there are still issues, because an extra "Add" option
+            // is probably better than crashing.
+            if (txtListChild != null)
+                txtListChild.setText(childText);
         }
 
         return convertView;
