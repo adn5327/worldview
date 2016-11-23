@@ -19,6 +19,8 @@ public class Sources extends AppCompatActivity {
     ListView sourceList;
     Button finish;
 
+    User user;
+
     // array of sources
     String [] sources = { "NY Times",
             "Guardian",
@@ -34,16 +36,7 @@ public class Sources extends AppCompatActivity {
         setContentView(R.layout.activity_sources);
 
         Bundle user_info =  getIntent().getExtras();
-        final String cur_username = user_info.getString("username");
-        final ArrayList<String> topics = user_info.getStringArrayList("topics");
-        ArrayList<String> precheckedSources = new ArrayList<>(Arrays.asList("NY Times","Guardian", "BBC"));
-        final boolean create;
-        if(user_info.containsKey("create"))
-            create = true;
-        else
-            create = false;
-        if(user_info.containsKey("sources"))
-            precheckedSources = user_info.getStringArrayList("sources");
+        user = user_info.getParcelable("user");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,12 +59,9 @@ public class Sources extends AppCompatActivity {
                     if(checkedArray.valueAt(i))
                         checkedSources.add(adapter.getItem(checkedArray.keyAt(i)));
                 }
+                user.getCurFeed().setSources(checkedSources);
                 Intent newsfeed = new Intent(Sources.this, NewsFeed.class);
-                newsfeed.putExtra("username", cur_username);
-                newsfeed.putStringArrayListExtra("topics", topics);
-                newsfeed.putStringArrayListExtra("sources", checkedSources);
-                if(create)
-                    newsfeed.putExtra("create", true);
+                newsfeed.putExtra("user", user);
                 startActivity(newsfeed);
             }
         });
@@ -79,7 +69,7 @@ public class Sources extends AppCompatActivity {
         sourceList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         sourceList.addFooterView(finishButton);
         sourceList.setAdapter(adapter);
-        for(String source : precheckedSources)
+        for(String source : user.getCurFeed().getSources())
             sourceList.setItemChecked(adapter.getPosition(source),true);
 
     }

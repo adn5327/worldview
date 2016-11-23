@@ -21,9 +21,10 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String username = usernameField.getText().toString();
+                User user = new User(username);
+                user.setDefaults();
                 Intent topics = new Intent(CreateAccount.this, Topics.class);
-                topics.putExtra("username", username);
-                topics.putExtra("create", true);
+                topics.putExtra("user", user);
                 startActivity(topics);
             }
         });

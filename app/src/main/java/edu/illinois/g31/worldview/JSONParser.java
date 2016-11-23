@@ -36,7 +36,7 @@ public class JSONParser {
     }
 
     public static ArrayList<Article> getArticles(User user, String articlejson){
-        System.out.println("Getting articles for user "+ user.name + "...");
+        System.out.println("Getting articles for user "+ user.getUsername() + "...");
         ArrayList<Article> articles = new ArrayList<>();
         JSONObject articleobj;
         JSONArray arts;
@@ -67,9 +67,9 @@ public class JSONParser {
         boolean topicPass = false;
         boolean sourcePass = false;
         for(int j = 0; j < tags.length; j++)
-            if(user.curFeed.topics.contains(tags[j]))
+            if(user.getCurFeed().getTopics().contains(tags[j]))
                 topicPass = true;
-        if(user.curFeed.sources.contains(source))
+        if(user.getCurFeed().getSources().contains(source))
             sourcePass = true;
         return topicPass && sourcePass;
     }

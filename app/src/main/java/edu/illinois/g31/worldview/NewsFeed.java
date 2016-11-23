@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.internal.NavigationMenu;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,8 @@ import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +43,10 @@ public class NewsFeed extends AppCompatActivity {
     List<String> listDataHeader;
     User user;
     HashMap<String, List<String>> listDataChild;
+    final int FEED = 0;
+    final int SAVED = 1;
+    final int COMPARE = 2;
+    final int ADDFEED = 3333333;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,38 +55,12 @@ public class NewsFeed extends AppCompatActivity {
 
         //Info from login
         Bundle article_info = getIntent().getExtras();
-        String cur_username = "No name";
-        ArrayList<String> topics = new ArrayList<>(Arrays.asList("Politics", "Style", "Donald Trump", "Baseball"));
-        ArrayList<String> sources = new ArrayList<>(Arrays.asList("BBC", "NY Times", "Washington Post"));
-        ArrayList<String> topics2 = new ArrayList<>(Arrays.asList("Sports", "Tech", "Entertainment"));
-        ArrayList<String> sources2 = new ArrayList<>(Arrays.asList("Washington Post", "NY Times", "Guardian", "BBC", "Huffington Post"));
-        ArrayList<Feed> user_feeds = new ArrayList<>();
-        boolean createAccount = false;
-        if (article_info != null) {
-            cur_username = article_info.getString("username");
-            if (article_info.containsKey("topics"))
-                topics = article_info.getStringArrayList("topics");
-            if (article_info.containsKey("sources"))
-                sources = article_info.getStringArrayList("sources");
-            if(article_info.containsKey("create"))
-                createAccount = true;
-
-
-        }
-        //init relevant info
-        Feed default_feed = new Feed("Default", topics, sources);
-        Feed feed_2 = new Feed("Alternate", topics2, sources2);
-        user_feeds.add(default_feed);
-        if(!createAccount)
-            user_feeds.add(feed_2);
-        user = new User(cur_username, user_feeds);
+        user = article_info.getParcelable("user");
         System.out.println("Logging in user..");
         System.out.println(user);
-
-
-        makeFeed();
+        makeFeed(FEED);
     }
-    public void makeFeed(){
+    public void makeFeed(int option){
         //set up the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp); // place icon in upper left
@@ -156,9 +137,6 @@ public class NewsFeed extends AppCompatActivity {
         });
 
         // Listview on child click listener
-        final String finalCur_username = user.name;  //temp variable for intent
-        final ArrayList<String> finalTopics = user.curFeed.topics;
-        final ArrayList<String> finalSources = user.curFeed.sources;
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
@@ -170,19 +148,15 @@ public class NewsFeed extends AppCompatActivity {
                         case 0:
                             i.setClass(NewsFeed.this, Sources.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            i.putExtra("username", finalCur_username);
-                            i.putStringArrayListExtra("sources", finalSources);
-                            i.putStringArrayListExtra("topics", finalTopics);
+                            i.putExtra("user", user);
                             startActivity(i);
                             break;
 
                         case 1:
                             i.setClass(NewsFeed.this, Topics.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            i.putExtra("username", finalCur_username);
+                            i.putExtra("user", user);
                             i.putExtra("topics_only", true);
-                            i.putStringArrayListExtra("sources", finalSources);
-                            i.putStringArrayListExtra("topics", finalTopics);
                             startActivity(i);
                             break;
 
@@ -203,15 +177,31 @@ public class NewsFeed extends AppCompatActivity {
         expListView.expandGroup(0);
         expListView.expandGroup(1);
 
-        myToolbar.setTitle(user.curFeed.feedname);
+        String header = "Worldview";
+        ArrayList<Article> articles = new ArrayList<>();
+        switch(option){
+            case FEED:
+                header = user.getCurFeed().getFeedname();
+                //JSON parsing
+                String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
+                articles = JSONParser.getArticles(user, articlejson);
+                break;
+            case SAVED:
+                header = "Saved";
+                articles = user.getSaved();
+                break;
+            case COMPARE:
+                header = "Compare";
+                articles = user.getCompare();
+                break;
+        }
+
+        getSupportActionBar().setTitle(header);
 
         //Whole feed scroll
         ScrollView scroll = (ScrollView) findViewById(R.id.newsfeed);
         scroll.removeAllViews();
 
-        //JSON parsing
-        String articlejson = JSONParser.loadJSONFromAsset(getBaseContext(),"articles.json");
-        ArrayList<Article> articles = JSONParser.getArticles(user, articlejson);
 
         //Make feed
         final LinearLayout newsFeed = new LinearLayout(this);
@@ -230,27 +220,36 @@ public class NewsFeed extends AppCompatActivity {
                     @Override
                     public void onClick() {
                         Intent article = new Intent(NewsFeed.this, ArticleViewer.class);
-                        article.putExtra("article_title", cur_article.title);
-                        article.putExtra("article_source", cur_article.source);
-                        article.putExtra("article_author", cur_article.author);
-                        article.putExtra("article_date", cur_article.date);
-                        article.putExtra("article_tags", cur_article.tags);
-                        article.putExtra("article_text", cur_article.full_text);
+                        article.putExtra("article", cur_article);
+                        article.putExtra("user", user);
                         startActivity(article);
                     }
                     @Override
                     public void onSwipeRight() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
+
+                        builder.setTitle(R.string.add_to_compare_swipe);
+
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                user.addToCompare(cur_article, NewsFeed.this);
+                            }
+                        });
+                        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                     @Override
                     public void onSwipeLeft() {
-                        // 1. Instantiate an AlertDialog.Builder with its constructor
                         AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
 
-                        // 2. Chain together various setter methods to set the dialog characteristics
                         builder.setMessage(R.string.remove_from_feed)
                                 .setTitle(R.string.remove_title);
 
-                        // Add the buttons
                         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 newsFeed.removeView(theLayout);
@@ -261,7 +260,6 @@ public class NewsFeed extends AppCompatActivity {
                                 // User cancelled the dialog
                             }
                         });
-                        // 3. Get the AlertDialog from create()
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
@@ -275,10 +273,10 @@ public class NewsFeed extends AppCompatActivity {
     }
 
     protected RelativeLayout addArticleToFeed(Article article){
-        String title = article.title;
-        String source = article.source;
-        String preview_text = article.preview_text;
-        String[] tags = article.tags;
+        String title = article.getTitle();
+        String source = article.getSource();
+        String preview_text = article.getPreview_text();
+        String[] tags = article.getTags();
 
         RelativeLayout feed = new RelativeLayout(this);
 
@@ -309,7 +307,7 @@ public class NewsFeed extends AppCompatActivity {
         titleText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_title_vertical_padding),0,0);
         titleText.setText(title);
         titleText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_title_text_size));
-        titleText.setTextColor(getResources().getColor(R.color.titleColor));
+        titleText.setTextColor(getResources().getColor(R.color.titleColor, null));
 
         TextView sourceText = new TextView(this);
         sourceText.setId(View.generateViewId());
@@ -322,7 +320,7 @@ public class NewsFeed extends AppCompatActivity {
         sourceText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
         sourceText.setText(source);
         sourceText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_source_text_size));
-        sourceText.setTextColor(getResources().getColor(R.color.sourceColor));
+        sourceText.setTextColor(getResources().getColor(R.color.sourceColor, null));
 
         TextView previewText = new TextView(this);
         previewText.setId(View.generateViewId());
@@ -334,7 +332,7 @@ public class NewsFeed extends AppCompatActivity {
         previewText.setLayoutParams(previewTextLP);
         previewText.setText(preview_text);
         previewText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_preview_text_size));
-        previewText.setTextColor(getResources().getColor(R.color.previewColor));
+        previewText.setTextColor(getResources().getColor(R.color.previewColor, null));
 
         RelativeLayout tagList = new RelativeLayout(this);
         tagList.setId(View.generateViewId());
@@ -358,7 +356,7 @@ public class NewsFeed extends AppCompatActivity {
             tagTexts[j].setPadding(0,0,getResources().getDimensionPixelSize(R.dimen.feed_tag_horizontal_padding),getResources().getDimensionPixelSize(R.dimen.feed_tag_vertical_padding));
             tagTexts[j].setText(tags[j]);
             tagTexts[j].setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_tag_text_size));
-            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor));
+            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor, null));
             tagList.addView(tagTexts[j]);
         }
 
@@ -375,10 +373,21 @@ public class NewsFeed extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_newsfeed_menu, menu);
-        for(int i = 0; i < user.feeds.size(); i++)
-            menu.add(0, i, 0, user.feeds.get(i).feedname);
-        menu.add(0, 333333, 0, "Add feed");
 
+        for(int i = 0; i < 2; i++) {
+            MenuItem item = menu.getItem(i);
+            SpannableString s = new SpannableString(item.getTitle());
+            s.setSpan(new ForegroundColorSpan(Color.BLUE), 0, s.length(), 0);
+            item.setTitle(s);
+        }
+
+        for(int i = 0; i < user.getFeeds().size(); i++)
+            menu.add(0, i, 0, user.getFeeds().get(i).getFeedname()+ " feed");
+        menu.add(0, ADDFEED, 0, "Add feed");
+        MenuItem item = menu.getItem(menu.size()-1);
+        SpannableString s = new SpannableString(item.getTitle());
+        s.setSpan(new ForegroundColorSpan(Color.RED), 0, s.length(), 0);
+        item.setTitle(s);
         // Associate searchable configuration with the SearchView
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -393,7 +402,7 @@ public class NewsFeed extends AppCompatActivity {
         //TODO:  show the appropriate feed based on selection
         int id = item.getItemId();
         System.out.println(id);
-        if (id == 333333) {
+        if (id == ADDFEED) {
             // 1. Instantiate an AlertDialog.Builder with its constructor
             AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
 
@@ -402,13 +411,12 @@ public class NewsFeed extends AppCompatActivity {
             builder.setTitle(R.string.alert_add_feed_title)
                     .setView(edittxt);
 
-
             // Add the buttons
             builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
+                    user.addFeed(edittxt.getText().toString());
                     Intent activity = new Intent(NewsFeed.this, Topics.class);
-                    activity.putExtra("username", user.name);
-                    activity.putExtra("feed_name", edittxt.getText());
+                    activity.putExtra("user", user);
                     startActivity(activity);
                 }
             });
@@ -421,9 +429,15 @@ public class NewsFeed extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.show();
         }
-        if(id < 10){
-            user.curFeed = user.feeds.get(id);
-            makeFeed();
+        if(id < user.getFeeds().size()){
+            user.setCurFeed(id);
+            makeFeed(FEED);
+        }
+        if(id == R.id.action_compare){
+            makeFeed(COMPARE);
+        }
+        if(id == R.id.action_saved){
+            makeFeed(SAVED);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -433,19 +447,19 @@ public class NewsFeed extends AppCompatActivity {
      * Preparing the list data
      */
     private void prepareListData(User user) {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+        listDataHeader = new ArrayList<>();
+        listDataChild = new HashMap<>();
 
         // Adding parent group data
         String[] items = getResources().getStringArray(R.array.news_feed_menu_array);
-        for (int i=0; i<items.length; i++)
-            listDataHeader.add(items[i]);
+        for(String item:items)
+            listDataHeader.add(item);
 
         //make empty lists for other menu options to avoid crashes
-        List<String> emptyList = new ArrayList<String>();
+        List<String> emptyList = new ArrayList<>();
 
-        listDataChild.put(listDataHeader.get(0), user.curFeed.sources); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), user.curFeed.topics);
+        listDataChild.put(listDataHeader.get(0), user.getCurFeed().getSources()); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), user.getCurFeed().getTopics());
         listDataChild.put(listDataHeader.get(2), emptyList);
         listDataChild.put(listDataHeader.get(3), emptyList);
         listDataChild.put(listDataHeader.get(4), emptyList);

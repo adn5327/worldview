@@ -21,6 +21,7 @@ public class Topics extends AppCompatActivity {
 
     ListView topicList;
     Button next;
+    User user;
 
     // array of topics
     String [] topics = {"Politics",
@@ -94,27 +95,15 @@ public class Topics extends AppCompatActivity {
         getSupportActionBar().setTitle("Select Topics");
 
         Bundle user_info =  getIntent().getExtras();
-        final String cur_username = user_info.getString("username");
+        user = user_info.getParcelable("user");
         final boolean topicsOnly = user_info.containsKey("topics_only");
-        ArrayList<String> precheckedTopics = new ArrayList<>(Arrays.asList("Politics","Donald Trump", "Hillary Clinton", "Barack Obama", "Style"));
-        ArrayList<String> precheckedSources = new ArrayList<>();
-        final boolean create;
-        if(user_info.containsKey("create"))
-            create = true;
-        else
-            create = false;
-        if(user_info.containsKey("topics"))
-            precheckedTopics = user_info.getStringArrayList("topics");
-        if(user_info.containsKey("sources"))
-            precheckedSources = user_info.getStringArrayList("sources");
-        final ArrayList<String> final_sources = precheckedSources;
 
         topicList = (ListView)findViewById(R.id.list);
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, topics);
 
         topicList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         topicList.setAdapter(adapter);
-        for(String topic : precheckedTopics)
+        for(String topic : user.getCurFeed().getTopics())
             topicList.setItemChecked(adapter.getPosition(topic),true);
 
         next = (Button)findViewById(R.id.button);
@@ -128,17 +117,13 @@ public class Topics extends AppCompatActivity {
                     if(checkedArray.valueAt(i))
                         checkedTopics.add(adapter.getItem(checkedArray.keyAt(i)));
                 }
+                user.getCurFeed().setTopics(checkedTopics);
                 Intent activity;
                 if(topicsOnly)
                     activity = new Intent(Topics.this, NewsFeed.class);
                 else
                     activity = new Intent(Topics.this, Sources.class);
-                activity.putExtra("username", cur_username);
-                activity.putStringArrayListExtra("topics",checkedTopics);
-                if(create)
-                    activity.putExtra("create", true);
-                if(final_sources.size() != 0)
-                    activity.putStringArrayListExtra("sources", final_sources);
+                activity.putExtra("user", user);
                 startActivity(activity);
             }
         });

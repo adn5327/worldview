@@ -74,8 +74,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 String username = usernameField.getText().toString();
+                User user = new User(username);
+                user.setFakeDefaults();
                 Intent newsfeed = new Intent(LoginActivity.this, NewsFeed.class);
-                newsfeed.putExtra("username", username);
+                newsfeed.putExtra("user", user);
                 startActivity(newsfeed);
             }
         });
@@ -110,14 +112,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
         */
     }
-    protected void goToNewsFeed(View view){
-        Intent activity = new Intent(this, NewsFeed.class);
-        startActivity(activity);
-    }
 
     protected void goToCreateAccount(View view){
         startActivity(new Intent(this, CreateAccount.class));
-        //TODO -- connect this to topics when
     }
 
     private void populateAutoComplete() {

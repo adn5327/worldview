@@ -30,14 +30,17 @@
 
 
     <!-- News feed toolbar buttons-->
-    <string name="compare_button">Compare</string>
+    <string name="compare_button">Compare Stack</string>
     <string name="search_button">Search</string>
     <string name="add_feed_menu_option">Add Feed</string>
+    <string name="saved_button">Saved Articles</string>
+
 
     <!-- Article toolbar buttons-->
     <string name="add_to_compare_button">Add to Compare</string>
     <string name="article_search_button">Search</string>
     <string name="download_button">Download</string>
+
 
     <!-- Topics/Sources navigation buttons-->
     <string name="goto_sources_list_button">Done</string>
@@ -55,5 +58,10 @@
     <string name="add_button">Edit</string>
     <string name="alert_add_feed">Add another feed</string>
     <string name="alert_add_feed_title">Add feed</string>
+    <string name="added_to_compare">Added to Compare Stack</string>
+    <string name="added_to_saved">Added to Saved Articles</string>
+    <string name="couldnt_add_title">Could Not Add</string>
+    <string name="couldnt_add_message">Article already added</string>
+    <string name="add_to_compare_swipe">Add to Compare Stack?</string>
 
 </resources>
