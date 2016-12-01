@@ -16,6 +16,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -307,7 +308,7 @@ public class NewsFeed extends AppCompatActivity {
         titleText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_title_vertical_padding),0,0);
         titleText.setText(title);
         titleText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_title_text_size));
-        titleText.setTextColor(getResources().getColor(R.color.titleColor, null));
+        titleText.setTextColor(getResources().getColor(R.color.titleColor));
 
         TextView sourceText = new TextView(this);
         sourceText.setId(View.generateViewId());
@@ -320,7 +321,7 @@ public class NewsFeed extends AppCompatActivity {
         sourceText.setPadding(0,getResources().getDimensionPixelSize(R.dimen.feed_source_vertical_padding),0,0);
         sourceText.setText(source);
         sourceText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_source_text_size));
-        sourceText.setTextColor(getResources().getColor(R.color.sourceColor, null));
+        sourceText.setTextColor(getResources().getColor(R.color.sourceColor));
 
         TextView previewText = new TextView(this);
         previewText.setId(View.generateViewId());
@@ -332,7 +333,7 @@ public class NewsFeed extends AppCompatActivity {
         previewText.setLayoutParams(previewTextLP);
         previewText.setText(preview_text);
         previewText.setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_preview_text_size));
-        previewText.setTextColor(getResources().getColor(R.color.previewColor, null));
+        previewText.setTextColor(getResources().getColor(R.color.previewColor));
 
         RelativeLayout tagList = new RelativeLayout(this);
         tagList.setId(View.generateViewId());
@@ -356,7 +357,7 @@ public class NewsFeed extends AppCompatActivity {
             tagTexts[j].setPadding(0,0,getResources().getDimensionPixelSize(R.dimen.feed_tag_horizontal_padding),getResources().getDimensionPixelSize(R.dimen.feed_tag_vertical_padding));
             tagTexts[j].setText(tags[j]);
             tagTexts[j].setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_tag_text_size));
-            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor, null));
+            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor));
             tagList.addView(tagTexts[j]);
         }
 
@@ -464,6 +465,21 @@ public class NewsFeed extends AppCompatActivity {
         listDataChild.put(listDataHeader.get(3), emptyList);
         listDataChild.put(listDataHeader.get(4), emptyList);
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        
     }
 
 
