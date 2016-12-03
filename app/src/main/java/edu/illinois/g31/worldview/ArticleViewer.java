@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -29,6 +30,7 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
     private ListView mDrawerListView;
     User user;
     Article art;
+    private TextView article_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +79,8 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
         }
 
 
-        TextView text = (TextView)this.findViewById(R.id.article_text);
-        text.setText(art.getFull_text());
+        article_text = (TextView)this.findViewById(R.id.article_text);
+        article_text.setText(art.getFull_text());
 
 
     }
@@ -119,6 +121,20 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
             });
             AlertDialog dialog = builder.create();
             dialog.show();
+        }
+        float oneSp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 1, getResources().getDisplayMetrics());
+        float curSize = article_text.getTextSize()/oneSp;
+        if(id == R.id.action_sizedown)
+        {
+            if(curSize > 10) {
+                article_text.setTextSize(curSize - 1);
+            }
+        }
+        if(id == R.id.action_sizeup)
+        {
+            if(curSize < 20) {
+                article_text.setTextSize(curSize + 1);
+            }
         }
         return super.onOptionsItemSelected(item);
     }

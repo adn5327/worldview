@@ -64,5 +64,7 @@
     <string name="couldnt_add_title">Could Not Add</string>
     <string name="couldnt_add_message">Article already added</string>
     <string name="add_to_compare_swipe">Add to Compare Stack?</string>
+    <string name="sizedown_button">Decrease Text Size</string>
+    <string name="sizeup_button">Increase Text Size</string>
 
 </resources>

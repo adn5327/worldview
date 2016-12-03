@@ -35,7 +35,7 @@
 
     <dimen name="article_tags_text_size">15sp</dimen>
 
-    <dimen name="article_text_size">14sp</dimen>
+    <dimen name="article_text_size">16sp</dimen>
     <dimen name="article_text_verticle_margin">10dp</dimen>
 
     <dimen name="menu_button_min_height">60dp</dimen>
