@@ -28,6 +28,7 @@
     <string name="prompt_username">Username</string>
     <string name="action_next">Next</string>
     <string name="action_done">Done</string>
+    <string name="logo_desc">Worldview logo</string>
 
     <!-- News feed toolbar buttons-->
     <string name="compare_button">Compare Stack</string>
