@@ -22,13 +22,13 @@ public class Sources extends AppCompatActivity {
     User user;
 
     // array of sources
-    String [] sources = { "NY Times",
-            "Guardian",
-            "BBC",
-            "ESPN",
+    String [] sources = { "BBC",
+            "Buzzfeed",
             "Chicago Tribune",
-            "Washington Post",
-            "Buzzfeed"};
+            "ESPN",
+            "Guardian",
+            "NY Times",
+            "Washington Post"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
