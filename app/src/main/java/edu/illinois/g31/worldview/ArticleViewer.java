@@ -74,7 +74,7 @@ public class ArticleViewer extends AppCompatActivity implements ListView.OnItemC
             tagTexts[j].setPadding(0,0,getResources().getDimensionPixelSize(R.dimen.feed_tag_horizontal_padding),getResources().getDimensionPixelSize(R.dimen.feed_tag_vertical_padding));
             tagTexts[j].setText(tags[j]);
             tagTexts[j].setTextSize(getResources().getDimensionPixelSize(R.dimen.feed_tag_text_size));
-            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor, null));
+            tagTexts[j].setTextColor(getResources().getColor(R.color.tagColor));
             tagList.addView(tagTexts[j]);
         }
 
