@@ -1,95 +1,178 @@
 {
   "articles": [
     {
-      "title": "Should President Obama pardon Hillary Clinton?",
-      "author": "John Smith",
-      "source": "NY Times",
-      "text": "President-elect Donald Trump said in an interview on “60 Minutes” that he had not decided whether to prosecute Hillary Clinton. This comes despite claims during his campaign that he would appoint a special prosecutor to look into her use of a private email server when she was secretary of state, as well as repeated calls during his rallies to Lock her up. Should President Obama pardon Clinton for any federal crimes she may have committed?",
-      "date": "11/11/16",
-      "tags": [
-        "Hillary Clinton",
-        "Barack Obama",
-        "Donald Trump"
-      ]
-    },
-    {
-      "title": "America's Heroin Trail",
-      "author": "John Smith",
-      "source": "NY Times",
-      "text": "Donald Trump won power with the promise of tackling illegal drug use in America, where more than 10,500 people died from heroin overdose in 2014. Heroin is a rapidly growing problem in the US and much of the supply comes from neighbouring Mexico, where more and more of the drug is being produced, according to White House figures.",
-      "date": "11/11/16",
-      "tags": [
-        "Politics",
-        "Heroin",
-        "Business"
-      ]
-    },
-    {
-      "title": "England Spain 2-2",
-      "author": "Jane Doe",
-      "source": "NY Times",
-      "text": "Gareth Southgate's four-game tenure as England's interim manager ended in disappointment as Spain scored twice in the closing moments to snatch a draw in the Wembley friendly. England looked on course to further bolster Southgate's claims to succeed Sam Allardyce as they impressed and took control through Adam Lallana's early penalty, awarded when Spain keeper Pepe Reina hauled down Jamie Vardy. The Leicester City striker's fine diving header from Jordan Henderson's cross just after the break gave England a lead they did not look like relinquishing as the clock ticked down. Former Liverpool striker Iago Aspas' superb curling finish in the 90th minute gave Spain an unlikely lifeline - and England allowed them to complete the comeback as Isco smuggled home a far-post finish between England substitute keeper Tom Heaton's legs in the fifth and final minute of injury time.",
-      "date": "11/12/16",
-      "tags": [
-        "Sports"
-      ]
-    },
-    {
-      "title": "Trump’s administration could upend the Middle East",
-      "author": "Jane Doe",
-      "source": "BBC",
-      "text": "The Middle East is bracing for an incoming American president who seems intent on radically reordering the regional balance of power, heralding new uncertainty and perhaps new turmoil for a part of the world already engulfed in multiple wars. So vague and contradictory were many of the pronouncements made by President-elect Donald Trump on the campaign trail that governments and analysts are puzzling out which ones he meant and how he would be able to implement them all. According to the more consistent of his statements, and conversations his advisers have had with analysts and officials, however, Trump will seek to bring about a significant recalibration of the existing order in the Middle East — in favor of Russia, away from Shiite Iran and to the benefit of the Sunni gulf states and Turkey. Some of his declared goals are not so very different from Obama administration policies that were set aside or unfulfilled because they proved too difficult to accomplish — such as the failed push to cooperate with Russia against terrorist groups in Syria and the expectation that Arab states will do more, and pay more, for regional security.",
-      "date": "11/14/16",
-      "tags": [
-        "Politics",
-        "Donald Trump",
-        "Syria",
-        "Middle East"
-      ]
-    },
-    {
-      "title": "Assad hopes for ally in Trump",
-      "author": "Jane Doe",
-      "source": "BBC",
-      "text": "Bashar al-Assad said Mr Trump would be a natural ally if he fulfilled a campaign pledge to fight terrorism.But he said it was dubious whether Mr Trump could live up to his promises.Mr Trump had previously said it was madness to oppose both Syrian forces and IS militants, and that fighting Syria could lead to fighting Russia.Conflict continues to rage in Syria. Government aircraft on Tuesday bombed besieged rebel-held eastern districts of the city of Aleppo for the first time in three weeks, activists said.More than three hundred thousand people have died since the Syrian civil conflict began in March two thousand eleven. Very cautiousSpeaking to Portugals RTP state television, Mr Assad said: We cannot tell anything about what he's going to do, but if... he is going to fight the terrorists, of course we are going to be [an] ally, natural ally in that regard with the Russians, with the Iranians, with many other countries.Mr Assad said that Mr Trump's pledge to focus the fight on Islamic State (IS) militants was promising, but added: Can he deliver?",
-      "date": "10/21/16",
-      "tags": [
-        "Politics",
-        "Donald Trump",
-        "Syria"
-      ]
-    },
-    {
-      "title": "Pope Francis gets Cubs hat, baseball from Chicago archbishop",
-      "author": "AP",
+      "title": "Michael Bloomberg may be Big Tobacco’s biggest enemy",
+      "author": "Ariana Eunjung Cha",
       "source": "Washington Post",
-      "text": "Pope Francis now has a blue Chicago Cubs hat to go with his traditional white skull cap. Chicago Archbishop Blase Cupich presented Francis with the hat and what looks like a signed baseball at the Vatican on Tuesday, nearly two weeks after the Cubs won their first World Series since 1908. Cupich shared a photo of Francis holding the items on Twitter . He included the message, News of the Cubs win reached all the way to the Vatican! Cupich says the pope can now celebrate with us and he asks for our prayers! Cupich is set to be made a cardinal by Francis later this week.",
-      "date": "10/21/16",
+      "text": "A new $360 million donation announced Monday by Bloomberg Philanthropies brings the group's total contribution to tobacco control to $1 billion.",
+      "date": "12/05/16",
       "tags": [
-        "Politics",
-        "Sports"
+        "Health"
       ]
     },
     {
-      "title": "Person to Know: The Designer Making One-of-a-Kind Pieces From Sustainable Fabrics",
-      "author": "Kin Woo",
-      "source": "NY Times",
-      "text": "When it comes to finding inspiration, the designer John Alexander Skelton is more likely to turn to museums and archives than the internet.",
-      "date": "11/14/16",
+      "title": "Apple reveals self-driving car plans",
+      "author": "",
+      "source": "BBC",
+      "text": "Apple has acknowledged for the first time that it is investing in building a self-driving car.",
+      "date": "12/04/16",
       "tags": [
-        "Fashion",
+        "Business",
+        "Tech"
+      ]
+    },
+    {
+      "title": "Australia is blowing its carbon budget, projections reveal",
+      "author": "Michael Slezak and Nick Evershed",
+      "source": "Guardian",
+      "text": "Australia’s greenhouse gas emissions are rising despite global reduction efforts, according to detailed projections made by the consultants NDEVR Environmental.",
+      "date": "12/04/16",
+      "tags": [
+        "Environment",
+        "World"
+      ]
+    },
+    {
+      "title": "David Bowie up for BBC Music British Artist award",
+      "author": "",
+      "source": "BBC",
+      "text": "David Bowie has been posthumously nominated for the British artist of the year prize at the BBC Music Awards.",
+      "date": "12/04/16",
+      "tags": [
+        "Arts",
+        "Music"
+      ]
+    },
+    {
+      "title": "Has voice control finally started speaking our language?",
+      "author": "Rhodri Marsden",
+      "source": "Guardian",
+      "text": "The problem with using the human voice to control computers is well known and well documented: it doesn’t always work.",
+      "date": "12/04/16",
+      "tags": [
+        "Tech"
+      ]
+    },
+    {
+      "title": "Joffrey Ballet to Perform in New York, After 21 Years Away",
+      "author": "Joshua Barone",
+      "source": "NY Times",
+      "text": "The troupe, based in Chicago, will come to Lincoln Center next spring to dance Krzysztof Pastor’s staging of “Romeo and Juliet.”",
+      "date": "12/04/16",
+      "tags": [
+        "Arts"
+      ]
+    },
+    {
+      "title": "On the bright side: inside the home of a colour lover",
+      "author": "Katie Forster",
+      "source": "Guardian",
+      "text": "One of the first things you notice as you enter Kate Haxell’s home is the bendy staircase. The craft book writer and editor has knocked out half her stairs and rebuilt them with a 90-degree corner, leading down into the open-plan living area instead of towards the front door.",
+      "date": "12/04/16",
+      "tags": [
+        "Home",
         "Style"
       ]
     },
     {
-      "title": "General Managers Revisit Picking Up the Pace on the Field",
-      "author": "Billy Witz and James Wagner",
+      "title": "Silicon Valley’s Culture, Not Its Companies, Dominates in China",
+      "author": "Paul Mozur",
       "source": "NY Times",
-      "text": "Believing that the length of games was turning young fans away from the game, Commissioner Rob Manfred made shortening the time of games a priority in his first season.",
-      "date": "11/09/16",
+      "text": "China’s internet filters block many of Silicon Valley’s biggest companies but have done little to stanch a Chinese obsession with its culture.",
+      "date": "12/04/16",
       "tags": [
-        "Baseball",
-        "Sports"
+        "Tech",
+        "World"
+      ]
+    },
+    {
+      "title": "Trump’s Taiwan phone call was long planned, say people who were involved",
+      "author": "Anne Gearan, Philip Rucker and Simon Denyer",
+      "source": "Washington Post",
+      "text": "Donald Trump’s protocol-breaking telephone call with Taiwan’s leader was an intentionally provocative move that establishes the incoming president as a break with the past, according to interviews with people involved in the planning.",
+      "date": "12/04/16",
+      "tags": [
+        "Donald Trump",
+        "Politics",
+        "World"
+      ]
+    },
+    {
+      "title": "Vowing to Squeeze Businesses, Trump Has Tactics Challenged",
+      "author": "Nelson D. Schwartz",
+      "source": "NY Times",
+      "text": "Economists from both ends of the political spectrum say the president-elect’s approach of berating and rewarding companies may be good political theater but ultimately ineffective.",
+      "date": "12/04/16",
+      "tags": [
+        "Business",
+        "Donald Trump",
+        "Economy",
+        "Politics"
+      ]
+    },
+    {
+      "title": "Lost Stravinsky piece performed for first time since rediscovery",
+      "author": "Stephen Walsh",
+      "source": "Guardian",
+      "text": "Igor Stravinsky’s Funeral Song for orchestra has had to wait almost 108 years for a second performance. But the work has at last made it after the lost materials resurfaced in a St Petersburg Conservatoire house move last year, chiefly thanks to the tireless exertions of one of the Conservatoire professors, Natalya Braginskaya.",
+      "date": "12/03/16",
+      "tags": [
+        "Arts",
+        "Music"
+      ]
+    },
+    {
+      "title": "Europe presses ahead with Mars rover",
+      "author": "Jonathan Amos",
+      "source": "BBC",
+      "text": "Europe will push ahead with its plan to put a UK-assembled robotic rover on the surface of Mars in 2021.",
+      "date": "12/02/16",
+      "tags": [
+        "Environment",
+        "Science"
+      ]
+    },
+    {
+      "title": "Harper Lee's hometown entertains grand plans for Mockingbird tourism",
+      "author": "Danuta Kean",
+      "source": "Guardian",
+      "text": "Harper Lee’s hometown of Monroeville plans to create a major tourist attraction for fans of the To Kill a Mockingbird author. The attraction, which is backed by a coalition of local business people led by the late author’s lawyer Tonja Carter, is expected to open in March, according to reports in the Alabama press.",
+      "date": "12/02/16",
+      "tags": [
+        "Arts",
+        "Books"
+      ]
+    },
+    {
+      "title": "A Superior Chicken Soup",
+      "author": "Julia Moskin",
+      "source": "NY Times",
+      "text": "During America’s inexorable march toward processed food, chicken soup became something to buy, not something to make — Campbell’s alone produces more than 50 varieties — and many cooks simply don’t know how satisfying a project it is.",
+      "date": "11/29/16",
+      "tags": [
+        "Food"
+      ]
+    },
+    {
+      "title": "Sweden Gavlebocken: Giant Christmas goat doesn't last a day",
+      "author": "",
+      "source": "BBC",
+      "text": "A giant Christmas goat effigy, erected each year in the Swedish town of Gavle and a favourite target of arsonists, failed to last 24 hours this year.",
+      "date": "11/29/16",
+      "tags": [
+        "World"
+      ]
+    },
+    {
+      "title": "Facebook’s fake news crisis deepens",
+      "author": "Dave Lee",
+      "source": "BBC",
+      "text": "Despite the best efforts of Mark Zuckerberg to downplay Facebook’s role in the election of Donald Trump, the scrutiny of how fake news is spread on the platform has intensified.",
+      "date": "11/15/16",
+      "tags": [
+        "Politics",
+        "Tech",
+        "Internet"
       ]
     },
     {
@@ -105,27 +188,25 @@
       ]
     },
     {
-      "title": "Will Trump make good on Asia threats?",
-      "author": "Karishma Vaswani",
-      "source": "BBC",
-      "text": "Fears over Mr Trump's anti-trade rhetoric were reflected in the falling shares of major Asian exporters on Wednesday - from car makers to cargo firms to shipping companies.",
-      "date": "11/10/16",
-      "tags": [
-        "Donald Trump",
-        "Business",
-        "Economy"
-      ]
-    },
-    {
-      "title": "Facebook’s fake news crisis deepens",
-      "author": "Dave Lee",
-      "source": "BBC",
-      "text": "Despite the best efforts of Mark Zuckerberg to downplay Facebook’s role in the election of Donald Trump, the scrutiny of how fake news is spread on the platform has intensified.",
+      "title": "Key figures purged from Trump transition team",
+      "author": "Karen DeYoung and Greg Miller",
+      "source": "Washington Post",
+      "text": "The bloodletting in President-elect Donald Trump’s transition team that began with last week’s ouster of New Jersey Gov. Chris Christie escalated Tuesday with new departures, particularly in the area of national security, as power consolidated within an ever-smaller group of top Trump loyalists.",
       "date": "11/15/16",
       "tags": [
         "Politics",
-        "Tech",
-        "Internet"
+        "Donald Trump"
+      ]
+    },
+    {
+      "title": "Twenty years later, ‘Space Jam’ is the movie we never knew we needed",
+      "author": "Elahe Izadi",
+      "source": "Washington Post",
+      "text": "Looking back on the movie starring Michael Jordan and the Looney Tunes gang now, few would have guessed its enduring appeal: Part animation, part live action, this alternate explanation of Jordan’s retirement involves a basketball game against cartoon aliens, the Monstars.",
+      "date": "11/15/16",
+      "tags": [
+        "Entertainment",
+        "Movies"
       ]
     },
     {
@@ -151,25 +232,107 @@
       ]
     },
     {
-      "title": "Key figures purged from Trump transition team",
-      "author": "Karen DeYoung and Greg Miller",
-      "source": "Washington Post",
-      "text": "The bloodletting in President-elect Donald Trump’s transition team that began with last week’s ouster of New Jersey Gov. Chris Christie escalated Tuesday with new departures, particularly in the area of national security, as power consolidated within an ever-smaller group of top Trump loyalists.",
-      "date": "11/15/16",
+      "title": "Person to Know: The Designer Making One-of-a-Kind Pieces From Sustainable Fabrics",
+      "author": "Kin Woo",
+      "source": "NY Times",
+      "text": "When it comes to finding inspiration, the designer John Alexander Skelton is more likely to turn to museums and archives than the internet.",
+      "date": "11/14/16",
+      "tags": [
+        "Fashion",
+        "Style"
+      ]
+    },
+    {
+      "title": "Trump’s administration could upend the Middle East",
+      "author": "Jane Doe",
+      "source": "BBC",
+      "text": "The Middle East is bracing for an incoming American president who seems intent on radically reordering the regional balance of power, heralding new uncertainty and perhaps new turmoil for a part of the world already engulfed in multiple wars. So vague and contradictory were many of the pronouncements made by President-elect Donald Trump on the campaign trail that governments and analysts are puzzling out which ones he meant and how he would be able to implement them all. According to the more consistent of his statements, and conversations his advisers have had with analysts and officials, however, Trump will seek to bring about a significant recalibration of the existing order in the Middle East — in favor of Russia, away from Shiite Iran and to the benefit of the Sunni gulf states and Turkey. Some of his declared goals are not so very different from Obama administration policies that were set aside or unfulfilled because they proved too difficult to accomplish — such as the failed push to cooperate with Russia against terrorist groups in Syria and the expectation that Arab states will do more, and pay more, for regional security.",
+      "date": "11/14/16",
       "tags": [
         "Politics",
+        "Donald Trump",
+        "Syria",
+        "Middle East"
+      ]
+    },
+    {
+      "title": "England Spain 2-2",
+      "author": "Jane Doe",
+      "source": "NY Times",
+      "text": "Gareth Southgate's four-game tenure as England's interim manager ended in disappointment as Spain scored twice in the closing moments to snatch a draw in the Wembley friendly. England looked on course to further bolster Southgate's claims to succeed Sam Allardyce as they impressed and took control through Adam Lallana's early penalty, awarded when Spain keeper Pepe Reina hauled down Jamie Vardy. The Leicester City striker's fine diving header from Jordan Henderson's cross just after the break gave England a lead they did not look like relinquishing as the clock ticked down. Former Liverpool striker Iago Aspas' superb curling finish in the 90th minute gave Spain an unlikely lifeline - and England allowed them to complete the comeback as Isco smuggled home a far-post finish between England substitute keeper Tom Heaton's legs in the fifth and final minute of injury time.",
+      "date": "11/12/16",
+      "tags": [
+        "Sports"
+      ]
+    },
+    {
+      "title": "America's Heroin Trail",
+      "author": "John Smith",
+      "source": "NY Times",
+      "text": "Donald Trump won power with the promise of tackling illegal drug use in America, where more than 10,500 people died from heroin overdose in 2014. Heroin is a rapidly growing problem in the US and much of the supply comes from neighbouring Mexico, where more and more of the drug is being produced, according to White House figures.",
+      "date": "11/11/16",
+      "tags": [
+        "Politics",
+        "Heroin",
+        "Business"
+      ]
+    },
+    {
+      "title": "Should President Obama pardon Hillary Clinton?",
+      "author": "John Smith",
+      "source": "NY Times",
+      "text": "President-elect Donald Trump said in an interview on “60 Minutes” that he had not decided whether to prosecute Hillary Clinton. This comes despite claims during his campaign that he would appoint a special prosecutor to look into her use of a private email server when she was secretary of state, as well as repeated calls during his rallies to Lock her up. Should President Obama pardon Clinton for any federal crimes she may have committed?",
+      "date": "11/11/16",
+      "tags": [
+        "Hillary Clinton",
+        "Barack Obama",
         "Donald Trump"
       ]
     },
     {
-      "title": "Twenty years later, ‘Space Jam’ is the movie we never knew we needed",
-      "author": "Elahe Izadi",
-      "source": "Washington Post",
-      "text": "Looking back on the movie starring Michael Jordan and the Looney Tunes gang now, few would have guessed its enduring appeal: Part animation, part live action, this alternate explanation of Jordan’s retirement involves a basketball game against cartoon aliens, the Monstars.",
-      "date": "11/15/16",
+      "title": "Will Trump make good on Asia threats?",
+      "author": "Karishma Vaswani",
+      "source": "BBC",
+      "text": "Fears over Mr Trump's anti-trade rhetoric were reflected in the falling shares of major Asian exporters on Wednesday - from car makers to cargo firms to shipping companies.",
+      "date": "11/10/16",
       "tags": [
-        "Entertainment",
-        "Movies"
+        "Donald Trump",
+        "Business",
+        "Economy"
+      ]
+    },
+    {
+      "title": "General Managers Revisit Picking Up the Pace on the Field",
+      "author": "Billy Witz and James Wagner",
+      "source": "NY Times",
+      "text": "Believing that the length of games was turning young fans away from the game, Commissioner Rob Manfred made shortening the time of games a priority in his first season.",
+      "date": "11/09/16",
+      "tags": [
+        "Baseball",
+        "Sports"
+      ]
+    },
+    {
+      "title": "Assad hopes for ally in Trump",
+      "author": "Jane Doe",
+      "source": "BBC",
+      "text": "Bashar al-Assad said Mr Trump would be a natural ally if he fulfilled a campaign pledge to fight terrorism.But he said it was dubious whether Mr Trump could live up to his promises.Mr Trump had previously said it was madness to oppose both Syrian forces and IS militants, and that fighting Syria could lead to fighting Russia.Conflict continues to rage in Syria. Government aircraft on Tuesday bombed besieged rebel-held eastern districts of the city of Aleppo for the first time in three weeks, activists said.More than three hundred thousand people have died since the Syrian civil conflict began in March two thousand eleven. Very cautiousSpeaking to Portugals RTP state television, Mr Assad said: We cannot tell anything about what he's going to do, but if... he is going to fight the terrorists, of course we are going to be [an] ally, natural ally in that regard with the Russians, with the Iranians, with many other countries.Mr Assad said that Mr Trump's pledge to focus the fight on Islamic State (IS) militants was promising, but added: Can he deliver?",
+      "date": "10/21/16",
+      "tags": [
+        "Politics",
+        "Donald Trump",
+        "Syria"
+      ]
+    },
+    {
+      "title": "Pope Francis gets Cubs hat, baseball from Chicago archbishop",
+      "author": "AP",
+      "source": "Washington Post",
+      "text": "Pope Francis now has a blue Chicago Cubs hat to go with his traditional white skull cap. Chicago Archbishop Blase Cupich presented Francis with the hat and what looks like a signed baseball at the Vatican on Tuesday, nearly two weeks after the Cubs won their first World Series since 1908. Cupich shared a photo of Francis holding the items on Twitter . He included the message, News of the Cubs win reached all the way to the Vatican! Cupich says the pope can now celebrate with us and he asks for our prayers! Cupich is set to be made a cardinal by Francis later this week.",
+      "date": "10/21/16",
+      "tags": [
+        "Politics",
+        "Sports"
       ]
     }
   ]
