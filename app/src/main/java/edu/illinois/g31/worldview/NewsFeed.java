@@ -217,7 +217,7 @@ public class NewsFeed extends AppCompatActivity {
                         cur_layout.getLayoutParams().height);
 
                 cur_layout.setLayoutParams(LP);
-                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout) {
+                cur_layout.setOnTouchListener(new OnSwipeTouchListener(NewsFeed.this, cur_layout,scroll) {
                     @Override
                     public void onClick() {
                         Intent article = new Intent(NewsFeed.this, ArticleViewer.class);

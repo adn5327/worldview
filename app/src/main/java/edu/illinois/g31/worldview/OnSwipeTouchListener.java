@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.ScrollView;
 
 /**
  * Created by Asaf Geva on 11/12/2016.
@@ -17,21 +17,25 @@ public class OnSwipeTouchListener implements OnTouchListener {
 
     private final GestureDetector gestureDetector;
     public final RelativeLayout theLayout;
+    ScrollView Scroll;
 
-    public OnSwipeTouchListener (Context ctx, RelativeLayout swipedLayout){
+    public OnSwipeTouchListener (Context ctx, RelativeLayout swipedLayout,ScrollView scroll){
         gestureDetector = new GestureDetector(ctx, new GestureListener());
         theLayout = swipedLayout;
+        Scroll=scroll;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+
+        // Scroll.requestDisallowInterceptTouchEvent(false);
         return gestureDetector.onTouchEvent(event);
     }
 
     private final class GestureListener extends SimpleOnGestureListener {
 
-        private static final int SWIPE_THRESHOLD = 100;
-        private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+        private static final int SWIPE_THRESHOLD = 50;
+        private static final int SWIPE_VELOCITY_THRESHOLD = 50;
 
         @Override
         public boolean onDown(MotionEvent e) {
@@ -46,10 +50,13 @@ public class OnSwipeTouchListener implements OnTouchListener {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             boolean result = false;
+            Scroll.requestDisallowInterceptTouchEvent(true);
+            
             try {
                 float diffY = e2.getY() - e1.getY();
-                float diffX = e2.getX() - e1.getX();
+                float diffX = 2*(e2.getX() - e1.getX());
                 if (Math.abs(diffX) > Math.abs(diffY)) {
+
                     if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffX > 0) {
                             onSwipeRight();
@@ -59,6 +66,7 @@ public class OnSwipeTouchListener implements OnTouchListener {
                     }
                     result = true;
                 }
+
                 result = true;
 
             } catch (Exception exception) {
