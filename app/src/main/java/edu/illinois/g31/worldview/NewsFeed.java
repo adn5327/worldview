@@ -479,7 +479,26 @@ public class NewsFeed extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        
+        AlertDialog.Builder builder = new AlertDialog.Builder(NewsFeed.this);
+
+        builder.setTitle(R.string.quit);
+
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                //quit
+                Intent intent = new  Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

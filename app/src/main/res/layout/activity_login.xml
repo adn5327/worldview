@@ -10,6 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.illinois.g31.worldview.LoginActivity">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/worldview"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/logo_desc"/>
+
     <!-- Login progress -->
     <ProgressBar
         android:id="@+id/login_progress"
